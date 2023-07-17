@@ -1,6 +1,22 @@
-@use '../../styles/variables' as v;
+// @use '../../styles/variables' as v;
 
 footer {
+  text-align: center;
   position: fixed;
   bottom: 0;
+  background-color: #28536b;
+  color: #eeddbb;
+  padding: 1rem 0;
+  // display: flex;
+  // flex-direction: column;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-text {
+  padding-top: 1rem;
+  width: 100vw;
 }

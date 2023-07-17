@@ -1,19 +1,27 @@
-import React from "react";
+import React from 'react';
 
-interface FooterProps {
-  likes: number;
-  setLikes: React.Dispatch<React.SetStateAction<number>>;
-}
+import './Footer.scss';
+
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedinIcon from '@mui/icons-material/LinkedIn';
+
+// interface FooterProps {
+//   likes: number;
+//   setLikes: React.Dispatch<React.SetStateAction<number>>;
+// }
 
 function Footer() {
   console.log('FOOTER > render');
 
   return (
     <footer>
-      <h2>Footer</h2>
-      {/* <button type="button" onClick={() => setLikes(likes + 1)}>
-        Likes : {likes}
-      </button> */}
+      <div className="footer-icons">
+        <FacebookIcon />
+        <TwitterIcon />
+        <LinkedinIcon />
+      </div>
+      <p className="footer-text">O'Invoice - © 2023</p>
     </footer>
   );
 }
