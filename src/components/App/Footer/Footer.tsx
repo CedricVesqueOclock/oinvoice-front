@@ -17,9 +17,9 @@ function Footer() {
   return (
     <footer>
       <div className="footer-icons">
-        <FacebookIcon />
-        <TwitterIcon />
-        <LinkedinIcon />
+        <FacebookIcon fontSize="large" />
+        <TwitterIcon fontSize="large" />
+        <LinkedinIcon fontSize="large" />
       </div>
       <p className="footer-text">O'Invoice - © 2023</p>
     </footer>
