@@ -1,14 +1,12 @@
-// @use '../../styles/variables' as v;
+@use '../../../styles/variables' as v;
 
 footer {
   text-align: center;
   position: fixed;
   bottom: 0;
-  background-color: #28536b;
+  background-color: v.$bg-color-primary;
   color: #eeddbb;
   padding: 1rem 0;
-  // display: flex;
-  // flex-direction: column;
 }
 
 .footer-icons {
