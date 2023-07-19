@@ -1,0 +1,21 @@
+@use '../../../styles/variables' as v;
+
+footer {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  background-color: v.$bg-color-primary;
+  color: v.$color-primary;
+  padding: 1rem 0;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-text {
+  font-size: 1.2rem;
+  padding-top: 1rem;
+  width: 100vw;
+}

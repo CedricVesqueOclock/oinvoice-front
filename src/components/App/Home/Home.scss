@@ -1,0 +1,19 @@
+.home {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-img {
+  height: 25vh;
+  width: 80vw;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.home-text {
+  padding: 1rem;
+  width: 80vw;
+}
