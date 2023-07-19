@@ -3,6 +3,8 @@ import Footer from './Footer/Footer';
 import Home from './Home/Home';
 import './App.scss';
 
+import './App.scss';
+
 function App() {
   return (
     <>
