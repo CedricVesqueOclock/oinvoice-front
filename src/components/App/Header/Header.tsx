@@ -20,9 +20,9 @@ function Header() {
           <Menu fontSize="large" />
         </button>
         <h1>O'Invoice</h1>
-        <div className="header-icons">
+        <button className="header-icons">
           <Person fontSize="large" />
-        </div>
+        </button>
         {isOpen && (
           <div>
             dfregthtrehyjejyedtrvfsvtrtrehryherh
