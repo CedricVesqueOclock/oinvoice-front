@@ -8,16 +8,16 @@ import {
   Route,
   RouterProvider,
   Routes,
-} from "react-router-dom";
+} from 'react-router-dom';
 
 // On importe notre composant principal
-import App from './components/App/App';
+import App from './App/App';
 
-import SignInForm from './components/App/SignInForm/SignInForm';
+import SignInForm from './pages/LogInForm/LogInForm';
 
 // On importe notre fichier de style global
 import './styles/index.scss';
-import Home from './components/App/Home/Home';
+import Home from './pages/Home/Home';
 
 const router = createBrowserRouter(
   // createRoutesFromElements(
@@ -26,24 +26,24 @@ const router = createBrowserRouter(
   //     <Route path='/login' element={<SignInForm />} />
   //   </>
   // )
-  [
-    { path: "*", Component: Root }
-  ]
-)
+  [{ path: '*', Component: Root }]
+);
 
 function Root() {
   return (
     <Routes>
-      <Route path='/' element={<App />}>
+      <Route path="/" element={<Home />}>
         <Route index element={<Home />} />
-        <Route path='login' element={<SignInForm />} />
       </Route>
+      <Route path="/login" element={<SignInForm />} />
     </Routes>
-  )
+  );
 }
 
 // Je créer un root pour mon application (a partir d'un élément HTML)
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
 
 // On injecte notre application dans le DOM
 root.render(<RouterProvider router={router} />);
