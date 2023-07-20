@@ -1,26 +1,30 @@
 @use '../../../styles/variables' as v;
 
 header {
-  z-index: 0;
-  text-align: center;
-  top: 0;
+  align-items: center;
   background-color: v.$bg-color-primary;
   color: v.$color-primary;
+  display: flex;
   padding: 1rem 0;
+  text-align: center;
+  top: 0;
   width: 100vw;
+}
+
+.menu-nav {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
 }
 
 .header-icons {
-  display: flex;
-  justify-content: space-around;
-  padding: 0 15px;
-  cursor: pointer;
   background-color: v.$bg-color-primary;
-  color: v.$color-primary;
   border: none;
+  color: v.$color-primary;
+  cursor: pointer;
+  display: flex;
+  padding: 0 15px;
 }
 
 .menuOpen {

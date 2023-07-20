@@ -16,16 +16,23 @@ function Header() {
     <>
       <header className="menu" id="header">
         <nav className="menu-nav">
-          <NavLink className="menu-link" to="/">
+
+          <NavLink
+            className="header-icons menu-link"
+            to="/"
+          >
             <Menu fontSize="large" />
           </NavLink>
+
           <h1>O'Invoice</h1>
+
           <NavLink
             className="header-icons menu-link"
             to="/login"
           >
             <Person fontSize="large" />
           </NavLink>
+
         </nav>
         {/* <button className="header-icons" onClick={openMenu}>
           <Menu fontSize="large" />
