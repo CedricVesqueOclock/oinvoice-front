@@ -1,11 +1,13 @@
 @use '../../styles/variables' as v;
 
+h1{
+  color: v.$color-primary!important;
+}
+
 footer {
   background-color: v.$bg-color-primary;
-  bottom: 0;
   color: v.$color-primary;
   padding: 1rem 0;
-  // position: fixed;
   text-align: center;
 }
 

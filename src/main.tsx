@@ -10,20 +10,19 @@ import {
   Routes,
 } from 'react-router-dom';
 
+// On importe des pages
 import Login from './pages/LogIn/LogIn';
 import Register from './pages/Register/Register'
 import Home from './pages/Home/Home';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Clients from './pages/Clients/Clients';
+import Documents from './pages/Documents/Documents';
+import Products from './pages/Products/Products';
 
 // On importe notre fichier de style global
 import './styles/index.scss';
 
 const router = createBrowserRouter(
-  // createRoutesFromElements(
-  //   <>
-  //     <Route path='/' element={<App />} />
-  //     <Route path='/login' element={<SignInForm />} />
-  //   </>
-  // )
   [{ path: '*', Component: Root }]
 );
 
@@ -35,6 +34,10 @@ function Root() {
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/clients" element={<Clients />} />
+      <Route path="/documents" element={<Documents />} />
+      <Route path="/products" element={<Products />} />
     </Routes>
   );
 }
