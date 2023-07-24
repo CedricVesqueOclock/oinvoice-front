@@ -12,7 +12,7 @@ import {
 
 // On importe des pages
 import Login from './pages/LogIn/LogIn';
-import Register from './pages/Register/Register'
+import Register from './pages/Register/Register';
 import Home from './pages/Home/Home';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Clients from './pages/Clients/Clients';
@@ -22,9 +22,7 @@ import Products from './pages/Products/Products';
 // On importe notre fichier de style global
 import './styles/index.scss';
 
-const router = createBrowserRouter(
-  [{ path: '*', Component: Root }]
-);
+const router = createBrowserRouter([{ path: '*', Component: Root }]);
 
 function Root() {
   return (
