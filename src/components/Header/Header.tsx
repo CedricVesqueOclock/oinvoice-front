@@ -40,7 +40,30 @@ function Header() {
       </header>
 
       <aside id="menu" className="close">
-        <p>menu</p>
+        <NavLink className="header-icons menu-link" to="/login">
+            Se connecter
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/login">
+            Page Factures
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/login">
+            Page devis
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/login">
+            Page clients
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/login">
+            Page Produits
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/login">
+          Informations
+      </NavLink>
+      <NavLink className="header-icons menu-link" to="/login">
+          Mentions legales
+      </NavLink>
+      <NavLink className="header-icons menu-link" to="/login">
+          Contact
+      </NavLink>
       </aside>
     </>
   );
