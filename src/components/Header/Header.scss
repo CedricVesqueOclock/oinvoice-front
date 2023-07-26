@@ -1,0 +1,41 @@
+@use '../../styles/variables' as v;
+
+header {
+  align-items: center;
+  background-color: v.$bg-color-primary;
+  color: v.$color-primary;
+  display: flex;
+  padding: 1rem 0;
+  text-align: center;
+  top: 0;
+  width: 100vw;
+}
+
+.menu-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.header-icons {
+  background-color: v.$bg-color-primary;
+  border: none;
+  color: v.$color-primary;
+  cursor: pointer;
+  display: flex;
+  padding: 0 15px;
+}
+
+.close {
+  display: none;
+}
+
+.open {
+  width: 80%;
+  height: 500px;
+  background-color: v.$bg-color-primary;
+  color: v.$color-primary;
+  text-align: center;
+  border-radius: 0 0 10px;
+}

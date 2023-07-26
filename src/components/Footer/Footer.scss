@@ -1,12 +1,14 @@
-@use '../../../styles/variables' as v;
+@use '../../styles/variables' as v;
+
+h1{
+  color: v.$color-primary!important;
+}
 
 footer {
-  text-align: center;
-  position: fixed;
-  bottom: 0;
   background-color: v.$bg-color-primary;
   color: v.$color-primary;
   padding: 1rem 0;
+  text-align: center;
 }
 
 .footer-icons {
@@ -18,4 +20,9 @@ footer {
   font-size: 1.2rem;
   padding-top: 1rem;
   width: 100vw;
+}
+
+button {
+  background-color: v.$bg-color-primary;
+  color: v.$color-primary;
 }

@@ -8,42 +8,42 @@ import {
   Route,
   RouterProvider,
   Routes,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-// On importe notre composant principal
-import App from './components/App/App';
-
-import SignInForm from './components/App/SignInForm/SignInForm';
+// On importe des pages
+import Login from './pages/LogIn/LogIn';
+import Register from './pages/Register/Register';
+import Home from './pages/Home/Home';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Clients from './pages/Clients/Clients';
+import Documents from './pages/Documents/Documents';
+import Products from './pages/Products/Products';
 
 // On importe notre fichier de style global
 import './styles/index.scss';
-import Home from './components/App/Home/Home';
 
-const router = createBrowserRouter(
-  // createRoutesFromElements(
-  //   <>
-  //     <Route path='/' element={<App />} />
-  //     <Route path='/login' element={<SignInForm />} />
-  //   </>
-  // )
-  [
-    { path: "*", Component: Root }
-  ]
-)
+const router = createBrowserRouter([{ path: '*', Component: Root }]);
 
 function Root() {
   return (
     <Routes>
-      <Route path='/' element={<App />}>
+      <Route path="/" element={<Home />}>
         <Route index element={<Home />} />
-        <Route path='login' element={<SignInForm />} />
       </Route>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/clients" element={<Clients />} />
+      <Route path="/documents" element={<Documents />} />
+      <Route path="/products" element={<Products />} />
     </Routes>
-  )
+  );
 }
 
 // Je créer un root pour mon application (a partir d'un élément HTML)
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
 
 // On injecte notre application dans le DOM
 root.render(<RouterProvider router={router} />);
