@@ -11,13 +11,15 @@ import {
 } from 'react-router-dom';
 
 // On importe des pages
-import Login from './pages/LogIn/LogIn';
+import Login from './pages/LogIn/Login';
 import Register from './pages/Register/Register';
 import Home from './pages/Home/Home';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Clients from './pages/Clients/Clients';
-import Documents from './pages/Documents/Documents';
 import Products from './pages/Products/Products';
+import Invoices from './pages/Invoices/Invoices';
+import Quotations from './pages/Quotations/Quotations'
+import Account  from './pages/Account/Account'
 
 // On importe notre fichier de style global
 import './styles/index.scss';
@@ -34,8 +36,10 @@ function Root() {
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/clients" element={<Clients />} />
-      <Route path="/documents" element={<Documents />} />
+      <Route path="/invoices" element={<Invoices />} />
+      <Route path="/quotations" element={<Quotations />} />
       <Route path="/products" element={<Products />} />
+      <Route path='/account' element={<Account />} />
     </Routes>
   );
 }
