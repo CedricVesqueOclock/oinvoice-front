@@ -1,79 +1,66 @@
-/* eslint-disable react/no-unescaped-entities */
-// import React, { useState } from 'react';
-
 import './Header.scss';
 
-import { Menu, Person } from '@mui/icons-material';
-
+import React, { useState } from 'react';
+import { Menu, Person, Close } from '@mui/icons-material';
 import { NavLink } from 'react-router-dom';
 
-function handleClickToggler() {
-  const menu = document.getElementById('menu');
-  if (menu) {
-    if (menu.classList.contains('close')) {
-      menu.classList.replace('close', 'open');
-    } else {
-      menu.classList.replace('open', 'close');
-    }
-  }
-}
-
 function Header() {
-  // const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
+
+  const handleClickToggler = () => {
+    setIsMenuOpen((prevState) => !prevState);
+
+    // Mettre à jour la classe du menu en fonction de l'état
+    const menu = document.getElementById('menu');
+    if (menu) {
+      menu.classList.toggle('open');
+      menu.classList.toggle('close');
+    }
+  };
 
   return (
     <>
-      <header className="menu-nav" id="header">
-        <NavLink
-          className="header-icons menu-link"
-          to="/"
-          onClick={handleClickToggler}
-        >
-          <Menu fontSize="large" />
-        </NavLink>
+      <header
+        className={isMenuOpen ? 'menu-nav menu-open' : 'menu-nav'}
+        id="header"
+      >
+        <div className="header-icons" onClick={handleClickToggler}>
+          {isMenuOpen ? <Close fontSize="large" /> : <Menu fontSize="large" />}
+        </div>
 
         <h1>O'Invoice</h1>
 
-        <NavLink className="header-icons menu-link" to="/login">
+        <NavLink className="header-icons" to="/login">
           <Person fontSize="large" />
         </NavLink>
       </header>
 
-      <aside id="menu" className="close">
-        <p>menu</p>
+      <aside id="menu" className={isMenuOpen ? 'open' : 'close'}>
+        <NavLink className="header-icons menu-link" to="/">
+          Accueil
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/documents">
+          Page Factures
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/documents">
+          Page devis
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/clients">
+          Page clients
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/products">
+          Page Produits
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/login">
+          Informations
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/login">
+          Mentions légales
+        </NavLink>
       </aside>
     </>
   );
-  // {/* <nav className="menu-nav">
-  //   <NavLink className="header-icons menu-link" to="/">
-  //     <Menu fontSize="large" />
-  //   </NavLink>
-
-  //   <h1>O'Invoice</h1>
-
-  //   <NavLink className="header-icons menu-link" to="/login">
-  //     <Person fontSize="large" />
-  //   </NavLink>
-  // </nav> */}
-  // {/* <button className="header-icons" onClick={openMenu}>
-  //     <Menu fontSize="large" />
-  //   </button>
-  //   {isOpen && (
-  //     <div>
-  //       dfregthtrehyjejyedtrvfsvtrtrehryherh
-  //     </div>
-  //   )} */}
-
-  // function menu() {
-  //   return <NavLink to="/login>">Se connecter</NavLink>;
-  // }
-
-  // function openMenu() {
-  //   console.log('button clicked');
-  //   setIsOpen(!isOpen);
-  //   console.log(isOpen);
-
-  // };
 }
 
 export default Header;

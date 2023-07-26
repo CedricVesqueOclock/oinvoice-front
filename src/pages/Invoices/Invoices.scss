@@ -1,6 +1,6 @@
 @use '../../styles/variables' as v;
 
-.clients {
+.invoices {
 }
 
 table {
@@ -17,17 +17,17 @@ th {
   font-size: 0.9rem;
 }
 
-.clients-array {
+.invoices-array {
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-.clients-button {
+.invoices-button {
   display: inline;
   justify-content: flex-end;
 }
 
-.clients-button:hover {
+button:hover {
   background-color: v.$color-primary;
   color: v.$bg-color-primary;
 }
