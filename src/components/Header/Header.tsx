@@ -25,34 +25,32 @@ function Header() {
     <>
       <header className="menu-nav" id="header">
         <NavLink
-          className="header-icons menu-link"
-          to="/"
-          onClick={handleClickToggler}
-        >
+          className="header-icons"
+          onClick={handleClickToggler} to={''}        >
           <Menu fontSize="large" />
         </NavLink>
 
         <h1>O'Invoice</h1>
 
-        <NavLink className="header-icons menu-link" to="/login">
+        <NavLink className="header-icons" to="/login">
           <Person fontSize="large" />
         </NavLink>
       </header>
 
       <aside id="menu" className="close">
-        <NavLink className="header-icons menu-link" to="/login">
-            Se connecter
+      <NavLink className="header-icons menu-link" to="/">
+            Accueil
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/login">
+        <NavLink className="header-icons menu-link" to="/documents">
             Page Factures
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/login">
+        <NavLink className="header-icons menu-link" to="/documents">
             Page devis
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/login">
+        <NavLink className="header-icons menu-link" to="/clients">
             Page clients
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/login">
+        <NavLink className="header-icons menu-link" to="/products">
             Page Produits
         </NavLink>
         <NavLink className="header-icons menu-link" to="/login">
@@ -60,9 +58,6 @@ function Header() {
       </NavLink>
       <NavLink className="header-icons menu-link" to="/login">
           Mentions legales
-      </NavLink>
-      <NavLink className="header-icons menu-link" to="/login">
-          Contact
       </NavLink>
       </aside>
     </>
