@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
+import { getAPI } from '../../utils/api'
 
 // Import du scss
 import './Login.scss';
@@ -17,7 +17,7 @@ function login() {
   function Submit(event: { preventDefault: () => void; }) {
     event.preventDefault()
 
-    axios.post("http://0.0.0.0:3000/api/login", fields)
+    getAPI().post("/login", fields)
     .then(function(res){
       //récupération des datas
       console.log(res.data);

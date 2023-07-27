@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { getAPI, logout } from '../../utils/api'
+
 // Import du scss
 import './Account.scss'
 
@@ -14,10 +13,11 @@ function Account() {
   
   const[fields, setFields] = useState({});
   const navigate = useNavigate();
+  
   function Submit(event: { preventDefault: () => void; }) {
     event.preventDefault()
 
-    getAPI().patch("http://0.0.0.0:3000/api/user/me", fields)
+    getAPI().patch("/user/me", fields)
     .then(function(res){
       //récupération des datas
       console.log(res.data);
@@ -29,7 +29,7 @@ function Account() {
   }
 
   useEffect(function(){
-    getAPI().get("http://0.0.0.0:3000/api/user/me", fields)
+    getAPI().get("/user/me", fields)
     .then(function(res){
       //récupération des datas
       setFields(res.data);
@@ -41,7 +41,7 @@ function Account() {
   }, [])
 
   const deleteAccount = function() {
-    getAPI().delete("http://0.0.0.0:3000/api/user/me")
+    getAPI().delete("/user/me")
     .then(function(res){
       //récupération des datas
       navigate('/login')
@@ -81,10 +81,11 @@ function Account() {
           <input type="text" id='siren' value={fields.siren} onChange={event => setFields({...fields, siren:event.target.value})} required />
           <button type="submit" className='register-button'>Valider</button>
         </form>
-          <hr />
+        <hr />
+        <div className="action">
           <button type="submit" onClick={deleteAccount}>Supprimer mon compte</button>
-          <hr />
           <button type="submit" onClick={logoutAccount}>Se déconnecter</button>
+        </div>
       </div>
       <Footer />
     </>

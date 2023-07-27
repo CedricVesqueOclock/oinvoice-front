@@ -3,9 +3,9 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
-import './Invoices.scss';
+import './Invoice.scss';
 
-function Invoices() {
+function Invoice() {
   return (
     <>
       <Header />
@@ -41,4 +41,4 @@ function Invoices() {
   );
 }
 
-export default Invoices;
+export default Invoice;

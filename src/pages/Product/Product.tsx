@@ -3,9 +3,9 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
-import './Products.scss';
+import './Product.scss';
 
-function Products() {
+function Product() {
   return (
     <>
       <Header />
@@ -43,4 +43,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Product;

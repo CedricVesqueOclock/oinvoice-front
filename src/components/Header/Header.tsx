@@ -40,16 +40,16 @@ function Header() {
         <NavLink className="header-icons menu-link" to="/">
           Accueil
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/documents">
+        <NavLink className="header-icons menu-link" to="/document">
           Page Factures
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/documents">
+        <NavLink className="header-icons menu-link" to="/document">
           Page devis
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/clients">
+        <NavLink className="header-icons menu-link" to="/client">
           Page clients
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/products">
+        <NavLink className="header-icons menu-link" to="/product">
           Page Produits
         </NavLink>
         <NavLink className="header-icons menu-link" to="/login">

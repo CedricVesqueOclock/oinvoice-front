@@ -15,11 +15,13 @@ import Login from './pages/LogIn/Login';
 import Register from './pages/Register/Register';
 import Home from './pages/Home/Home';
 import Dashboard from './pages/Dashboard/Dashboard';
-import Clients from './pages/Clients/Clients';
-import Products from './pages/Products/Products';
-import Invoices from './pages/Invoices/Invoices';
-import Quotations from './pages/Quotations/Quotations'
+import Client from './pages/Client/Client';
+import Invoice from './pages/Invoice/Invoice';
+import Quotation from './pages/Quotation/Quotation'
 import Account  from './pages/Account/Account'
+import ClientEdit from './pages/ClientEdit/ClientEdit'
+import Product from './pages/Product/Product'
+import ProductEdit from './pages/ProductEdit/ProductEdit'
 
 // On importe notre fichier de style global
 import './styles/index.scss';
@@ -35,10 +37,12 @@ function Root() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/clients" element={<Clients />} />
-      <Route path="/invoices" element={<Invoices />} />
-      <Route path="/quotations" element={<Quotations />} />
-      <Route path="/products" element={<Products />} />
+      <Route path="/client" element={<Client />} />
+      <Route path='/client/edit/:id' element={<ClientEdit />} />
+      <Route path="/invoice" element={<Invoice />} />
+      <Route path="/quotation" element={<Quotation />} />
+      <Route path="/product" element={<Product />} />
+      <Route path='/product/edit/:id' element={<ProductEdit />} />
       <Route path='/account' element={<Account />} />
     </Routes>
   );
