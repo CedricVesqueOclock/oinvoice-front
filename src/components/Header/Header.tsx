@@ -6,8 +6,11 @@ import { NavLink } from 'react-router-dom';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isConnected, setIsConnected] = useState(false);
+  let isConnected = false;
 
+  if (localStorage.token) {
+    isConnected = true;
+  }
   const handleClickToggler = () => {
     setIsMenuOpen((prevState) => !prevState);
 
@@ -37,13 +40,19 @@ function Header() {
       </header>
 
       <aside id="menu" className={isMenuOpen ? 'open' : 'close'}>
-        <NavLink className="header-icons menu-link" to="/">
+        <NavLink
+          className="header-icons menu-link"
+          to={!isConnected ? '/' : '/dashboard'}
+        >
           Accueil
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/document">
+        <NavLink className="header-icons menu-link" to="/account">
+          Mon compte
+        </NavLink>
+        <NavLink className="header-icons menu-link" to="/invoice">
           Page factures
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/document">
+        <NavLink className="header-icons menu-link" to="/quotation">
           Page devis
         </NavLink>
         <NavLink className="header-icons menu-link" to="/client">
@@ -52,10 +61,10 @@ function Header() {
         <NavLink className="header-icons menu-link" to="/product">
           Page produits
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/login">
+        <NavLink className="header-icons menu-link" to="/infos">
           Informations
         </NavLink>
-        <NavLink className="header-icons menu-link" to="/login">
+        <NavLink className="header-icons menu-link" to="/legal">
           Mentions légales
         </NavLink>
       </aside>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import { getAPI, logout } from '../../utils/api';
+import { getAPI } from '../../utils/api';
 
 import './ClientEdit.scss';
 
@@ -19,24 +19,38 @@ function ClientEdit() {
   const [user, setUser] = useState({});
   const [client, setClient] = useState([]);
 
-  useEffect(function () {
-    // getAPI().get("http://0.0.0.0:3000/api/client", fields)
-    // .then(function(res){
-    //   //récupération des datas
-    //   setFields(res.data);
-    //   console.log(res.data);
-    // })
-    // .catch(function(error){
-    //   console.log(error);
-    // })
+  function Submit(event: { preventDefault: () => void }) {
+    event.preventDefault();
 
+    getAPI()
+      .patch('/client', fields)
+      .then(function (res) {
+        // récupération des datas
+        console.log(res.data);
+        alert('Client modifié');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  useEffect(function () {
+      // getAPI().get("http://0.0.0.0:3000/api/client", fields)
+      // .then(function(res){
+      //   //récupération des datas
+      //   setFields(res.data);
+      //   console.log(res.data);
+      // })
+      // .catch(function(error){
+      //   console.log(error);
+      // })
     const handle = async function () {
       setClient((await getAPI().get('/client')).data);
-      console.log(client);
+      console.log(ClientData);
     };
 
     handle();
-  }, []);
+  }, [1]);
 
   return (
     <>
@@ -46,14 +60,14 @@ function ClientEdit() {
         {client.map(function (client: ClientData) {
           return (
             <>
-              <form>
+              <form onSubmit={Submit}>
                 <h2 className="client-title">{client.lastname}</h2>
                 <label htmlFor="name">Nom :</label>
-                <input defaultValue={client.firstname} />
+                <input type="text" id="firstname" defaultValue={client.firstname} />
                 <label htmlFor="name">Prénom :</label>
-                <input defaultValue={client.lastname} />
+                <input type='text' id='lastname' defaultValue={client.lastname} />
                 <label htmlFor="mail">Email :</label>
-                <input defaultValue={client.mail} />
+                <input type='mail' id='mail' defaultValue={client.mail} />
                 <label htmlFor="address">Adresse :</label>
                 <input
                   type="text"
@@ -102,7 +116,6 @@ function ClientEdit() {
                   onChange={(event) =>
                     setFields({ ...fields, siret: event.target.value })
                   }
-                  required
                 />
                 <label htmlFor="siren">Siren :</label>
                 <input
@@ -112,10 +125,12 @@ function ClientEdit() {
                   onChange={(event) =>
                     setFields({ ...fields, siren: event.target.value })
                   }
-                  required
                 />
                 {/* <input><a href={'/client/edit/' + client.id}>Modifier</a></input>
                 <input><button onClick={e => remove(client.id)}>Supprimer</button></input> */}
+                <button type="submit" className="register-button">
+                Valider
+                </button>
               </form>
               <hr />
               <div className="action">

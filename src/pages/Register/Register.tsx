@@ -21,6 +21,7 @@ function Register() {
     .then(function(res){
       //récupération des datas
       console.log(res.data);
+      alert('Compte Crée');
       navigate('/login');
     })
     .catch(function(error){
