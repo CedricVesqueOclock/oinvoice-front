@@ -1,33 +1,24 @@
 @use '../../styles/variables' as v;
 
 .client {
-}
-
-table {
-  border-collapse: collapse;
-  border: 2px solid black;
-  margin: auto;
-}
-
-td,
-th {
-  border: 1px solid black;
-  text-align: center;
-  padding: 2px 8px 0;
-  font-size: 0.9rem;
-}
-
-.client-array {
+  display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
 }
 
-.client-button {
-  display: inline;
-  justify-content: flex-end;
+.client-edit-form {
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
-.client-button:hover {
-  background-color: v.$color-primary;
-  color: v.$bg-color-primary;
+.client-edit-form-item {
+  padding: 1rem;
+  width: 90%;
+  justify-content: space-around;
+}
+
+.client-edit-form-item-label {
+  margin-right: 2rem;
 }

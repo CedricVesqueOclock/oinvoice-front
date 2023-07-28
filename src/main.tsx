@@ -39,7 +39,7 @@ function Root() {
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/client" element={<Client />} />
-      <Route path="/client/edit/:id" element={<ClientEdit />} />
+      <Route path="/client/:id" element={<ClientEdit />} />
       <Route path="/client/add" element={<ClientAdd />} />
       <Route path="/invoice" element={<Invoice />} />
       <Route path="/quotation" element={<Quotation />} />

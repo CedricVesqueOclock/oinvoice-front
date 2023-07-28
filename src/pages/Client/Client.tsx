@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import EditIcon from '@mui/icons-material/Edit';
+
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+
 import { getAPI, logout } from '../../utils/api';
 
 import './Client.scss';
@@ -71,6 +76,7 @@ function Client() {
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Email</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody className="client-array-body">
@@ -82,11 +88,17 @@ function Client() {
                     <td>{client.firstname}</td>
                     <td>{client.mail}</td>
                     <td>
-                      <a href={`/client/edit/${client.id}`}>Modifier</a>
-                    </td>
-                    <td>
-                      <button onClick={(e) => remove(client.id)}>
-                        Supprimer
+                      <a
+                        className="delete-button"
+                        href={`/client/${client.id}`}
+                      >
+                        <EditIcon />
+                      </a>
+                      <button
+                        className="delete-button"
+                        onClick={(e) => remove(client.id)}
+                      >
+                        <DeleteForeverIcon />
                       </button>
                     </td>
                   </tr>
