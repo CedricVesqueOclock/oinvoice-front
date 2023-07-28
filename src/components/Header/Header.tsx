@@ -41,7 +41,7 @@ function Header() {
           Accueil
         </NavLink>
         <NavLink className="header-icons menu-link" to="/document">
-          Page Factures
+          Page factures
         </NavLink>
         <NavLink className="header-icons menu-link" to="/document">
           Page devis
@@ -50,7 +50,7 @@ function Header() {
           Page clients
         </NavLink>
         <NavLink className="header-icons menu-link" to="/product">
-          Page Produits
+          Page produits
         </NavLink>
         <NavLink className="header-icons menu-link" to="/login">
           Informations
