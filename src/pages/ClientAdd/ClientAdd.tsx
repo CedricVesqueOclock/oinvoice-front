@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
-
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+import { getAPI } from '../../utils/api';
+
 // Import du scss
-import './Register.scss';
+import './ClientAdd.scss';
 
 // Import des composants
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
-function Register() {
+function ClientAdd() {
   const [fields, setFields] = useState({});
   const navigate = useNavigate();
-  function Submit(event: { preventDefault: () => void }) {
+  async function Submit(event: { preventDefault: () => void }) {
     event.preventDefault();
 
-    axios
-      .post('http://0.0.0.0:3000/api/user', fields)
+    await getAPI()
+      .post('http://0.0.0.0:3000/api/client', fields)
       .then(function (res) {
         // récupération des datas
         console.log(res.data);
-        alert('Compte Créée');
-        navigate('/login');
+        alert('Client ajouté');
+        navigate('/client');
       })
       .catch(function (error) {
         console.log(error);
@@ -34,35 +34,51 @@ function Register() {
       <Header />
       <div className="form">
         <form className="signInForm" onSubmit={Submit}>
-          <h2>Inscrivez vous ...</h2>
-          <label htmlFor="name">Nom de l'entreprise :</label>
+          <h2>Créer un client ...</h2>
+          <label htmlFor="firstname">Prénom :</label>
           <input
             type="text"
             id="name"
             onChange={(event) =>
-              setFields({ ...fields, name: event.target.value })
+              setFields({ ...fields, firstname: event.target.value })
             }
             required
           />
-          <label htmlFor="mail">Email :</label>
+          <label htmlFor="lastname">Nom :</label>
           <input
-            type="mail"
+            type="text"
+            id="Nom"
+            onChange={(event) =>
+              setFields({ ...fields, lastname: event.target.value })
+            }
+            required
+          />
+          <label htmlFor="siret">Siret :</label>
+          <input
+            type="text"
+            id="siret"
+            onChange={(event) =>
+              setFields({ ...fields, siret: event.target.value })
+            }
+          />
+          <label htmlFor="siren">Siren :</label>
+          <input
+            type="text"
+            id="siren"
+            onChange={(event) =>
+              setFields({ ...fields, siren: event.target.value })
+            }
+          />
+          <label htmlFor="mail">Mail :</label>
+          <input
+            type="text"
             id="mail"
             onChange={(event) =>
               setFields({ ...fields, mail: event.target.value })
             }
             required
           />
-          <label htmlFor="password">Mot de passe :</label>
-          <input
-            type="password"
-            id="password"
-            onChange={(event) =>
-              setFields({ ...fields, password: event.target.value })
-            }
-            required
-          />
-          <label htmlFor="address">Adresse :</label>
+          <label htmlFor="address">Addresse :</label>
           <input
             type="text"
             id="address"
@@ -89,7 +105,7 @@ function Register() {
             }
             required
           />
-          <label htmlFor="number">Téléphone :</label>
+          <label htmlFor="number">Numéro de téléphone :</label>
           <input
             type="text"
             id="number"
@@ -98,26 +114,8 @@ function Register() {
             }
             required
           />
-          <label htmlFor="siret">Siret :</label>
-          <input
-            type="text"
-            id="siret"
-            onChange={(event) =>
-              setFields({ ...fields, siret: event.target.value })
-            }
-            required
-          />
-          <label htmlFor="siren">Siren :</label>
-          <input
-            type="text"
-            id="siren"
-            onChange={(event) =>
-              setFields({ ...fields, siren: event.target.value })
-            }
-            required
-          />
           <button type="submit" className="register-button">
-            S'inscrire
+            Ajout du client
           </button>
         </form>
       </div>
@@ -125,5 +123,4 @@ function Register() {
     </>
   );
 }
-
-export default Register;
+export default ClientAdd;

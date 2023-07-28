@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { getAPI, logout } from '../../utils/api';
-import { useNavigate } from 'react-router-dom';
 
 import './Client.scss';
 
@@ -38,17 +38,20 @@ function Client() {
     handle();
   }, []);
 
-  function remove(id: number){
-    getAPI().delete('/client/' + id)
-      .then(function(){
-        setClient(client.filter(function(client: ClientData){
-          client.id != id
-        }))
-        alert('client supprimé')
+  function remove(id: number) {
+    getAPI()
+      .delete(`/client/${id}`)
+      .then(function () {
+        setClient(
+          client.filter(function (client: ClientData) {
+            client.id != id;
+          })
+        );
+        alert('client supprimé');
       })
-      .catch(function(error){
-        console.log(error)
-      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   return (
@@ -57,9 +60,9 @@ function Client() {
       <div className="client">
         <h1 className="user-name">Petruchka</h1>
         <h2 className="client-title">Liste des clients</h2>
-        <button className="client-button" type="button">
+        <NavLink className="client-button" type="button" to="/client/add">
           Ajouter un client
-        </button>
+        </NavLink>
         <div className="client-array">
           <table>
             <thead className="client-array-header">
@@ -78,8 +81,14 @@ function Client() {
                     <td>{client.lastname}</td>
                     <td>{client.firstname}</td>
                     <td>{client.mail}</td>
-                    <td><a href={'/client/edit/' + client.id}>Modifier</a></td>
-                    <td><button onClick={e => remove(client.id)}>Supprimer</button></td>
+                    <td>
+                      <a href={`/client/edit/${client.id}`}>Modifier</a>
+                    </td>
+                    <td>
+                      <button onClick={(e) => remove(client.id)}>
+                        Supprimer
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
