@@ -25,7 +25,7 @@ function Invoice() {
 
   useEffect(function () {
     const handle = async function () {
-      setInvoice((await getAPI().get('/invoice')).data);
+      setInvoice((await getAPI().get('/document/invoice')).data);
     };
 
     handle();
@@ -33,7 +33,7 @@ function Invoice() {
 
   function remove(id: number) {
     getAPI()
-      .delete(`/invoice/${id}`)
+      .delete(`/document/invoice/${id}`)
       .then(function () {
         setInvoice(
           invoice.filter(function (client: InvoiceData) {
@@ -72,7 +72,7 @@ function Invoice() {
                   <tr>
                     <td>{invoice.id}</td>
                     <td>{invoice.order_date}</td>
-                    <td>{invoice.delivry_date}</td>
+                    <td>{invoice.delivery_date}</td>
                     <td>
                       <a
                         className="delete-button"
