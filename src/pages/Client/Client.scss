@@ -1,10 +1,10 @@
 @use '../../styles/variables' as v;
 
 .client {
+  flex-wrap: wrap;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-content: flex-start;
+  min-height: calc(100vh - 12em);
 }
 
 table {
@@ -19,20 +19,36 @@ th {
   text-align: center;
   padding: 2px 8px 0;
   font-size: 0.9rem;
+  width: 13rem;
 }
 
-.user-name {
-  top: 0;
+.client-page-title {
+  margin-top: 6rem;
+}
+
+.client-title {
+  margin-top: 1rem;
 }
 
 .client-array {
+  display: flex;
+  width: 95vw;
+  margin-top: 10rem;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
 .client-button {
+  margin: 4rem 10rem;
+  width: 12rem;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 10px;
   display: inline;
   justify-content: flex-end;
+  text-decoration: none;
+  color: v.$color-primary;
+  background-color: v.$bg-color-primary;
 }
 
 .client-button:hover {
@@ -40,7 +56,8 @@ th {
   color: v.$bg-color-primary;
 }
 
-.delete-button, .delete-button:hover {
+.delete-button,
+.delete-button:hover {
   background-color: white;
   color: black;
   border: none;

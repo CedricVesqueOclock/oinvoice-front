@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import { NavLink, useNavigate, useParams } from 'react-router-dom';
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
+/* eslint-disable func-names */
+import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { getAPI } from '../../utils/api';
 
 // Import des composants
@@ -10,6 +13,7 @@ import Footer from '../../components/Footer/Footer';
 import './ClientAdd.scss';
 
 function ClientAdd() {
+  const [user, setUser] = useState({});
   const [fields, setFields] = useState({});
   const navigate = useNavigate();
 
@@ -29,94 +33,161 @@ function ClientAdd() {
       });
   }
 
+  useEffect(function () {
+    getAPI()
+      .get('/user/me', user)
+      .then(function (res) {
+        setUser(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <Header />
       <div className="form">
-        <form className="signInForm" onSubmit={Submit}>
-          <h2>Créer un client ...</h2>
-          <label htmlFor="firstname">Prénom :</label>
-          <input
-            type="text"
-            id="name"
-            onChange={(event) =>
-              setFields({ ...fields, firstname: event.target.value })
-            }
-            required
-          />
-          <label htmlFor="lastname">Nom :</label>
-          <input
-            type="text"
-            id="Nom"
-            onChange={(event) =>
-              setFields({ ...fields, lastname: event.target.value })
-            }
-            required
-          />
-          <label htmlFor="siret">Siret :</label>
-          <input
-            type="text"
-            id="siret"
-            onChange={(event) =>
-              setFields({ ...fields, siret: event.target.value })
-            }
-          />
-          <label htmlFor="siren">Siren :</label>
-          <input
-            type="text"
-            id="siren"
-            onChange={(event) =>
-              setFields({ ...fields, siren: event.target.value })
-            }
-          />
-          <label htmlFor="mail">Mail :</label>
-          <input
-            type="text"
-            id="mail"
-            onChange={(event) =>
-              setFields({ ...fields, mail: event.target.value })
-            }
-            required
-          />
-          <label htmlFor="address">Addresse :</label>
-          <input
-            type="text"
-            id="address"
-            onChange={(event) =>
-              setFields({ ...fields, address: event.target.value })
-            }
-            required
-          />
-          <label htmlFor="zip_code">Code postal :</label>
-          <input
-            type="text"
-            id="zip_code"
-            onChange={(event) =>
-              setFields({ ...fields, zip_code: event.target.value })
-            }
-            required
-          />
-          <label htmlFor="city">Ville :</label>
-          <input
-            type="text"
-            id="city"
-            onChange={(event) =>
-              setFields({ ...fields, city: event.target.value })
-            }
-            required
-          />
-          <label htmlFor="number">Numéro de téléphone :</label>
-          <input
-            type="text"
-            id="number"
-            onChange={(event) =>
-              setFields({ ...fields, number: event.target.value })
-            }
-            required
-          />
+      <h1 className="user-name">{user.name}</h1>
+
+        <form className="client-edit-form" onSubmit={Submit}>
+          <h2>Ajouter un Client</h2>
+          <div className="client-edit-form-item">
+            <label className="client-edit-form-item-label" htmlFor="firstname">
+              Prénom :
+            </label>
+            <input
+              type="text"
+              id="firstname"
+              className="client-edit-form-item-input"
+              onChange={(event) =>
+                setFields({ ...fields, firstname: event.target.value })
+              }
+              required
+            />
+          </div>
+          <div className="client-edit-form-item">
+            <label
+              className="client-edit-form-item-label"
+              htmlFor="lastname"
+            >
+              Nom :
+            </label>
+            <input
+              type="text"
+              id="lastname"
+              className="client-edit-form-item-input"
+              onChange={(event) =>
+                setFields({ ...fields, lastname: event.target.value })
+              }
+              required
+            />
+          </div>
+          <div className="client-edit-form-item">
+            <label className="client-edit-form-item-label" htmlFor="siret">
+              Siret :
+            </label>
+            <input
+              type="text"
+              id="siret"
+              className="client-edit-form-item-input"
+              onChange={(event) =>
+                setFields({ ...fields, siret: event.target.value })
+              }
+            />
+          </div>
+          <div className="client-edit-form-item">
+            <label className="client-edit-form-item-label" htmlFor="siren">
+              Siren :
+            </label>
+            <input
+              type="text"
+              id="siren"
+              className="client-edit-form-item-input"
+              onChange={(event) =>
+                setFields({ ...fields, siren: event.target.value })
+              }
+            />
+          </div>
+          <div className="client-edit-form-item">
+            <label className="client-edit-form-item-label" htmlFor="mail">
+              Adresse mail :
+            </label>
+            <input
+              type="text"
+              id="mail"
+              className="client-edit-form-item-input"
+              onChange={(event) =>
+                setFields({ ...fields, mail: event.target.value })
+              }
+              required
+            />
+          </div>
+          <div className="client-edit-form-item">
+            <label className="client-edit-form-item-label" htmlFor="address">
+              Adresse postale :
+            </label>
+            <input
+              type="text"
+              id="address"
+              className="client-edit-form-item-input"
+              onChange={(event) =>
+                setFields({ ...fields, address: event.target.value })
+              }
+              required
+            />
+          </div>
+          <div className="client-edit-form-item">
+            <label className="client-edit-form-item-label" htmlFor="zip_code">
+              Code postale :
+            </label>
+            <input
+              type="text"
+              id="zip_code"
+              className="client-edit-form-item-input"
+              onChange={(event) =>
+                setFields({ ...fields, zip_code: event.target.value })
+              }
+              required
+            />
+          </div>
+          <div className="client-edit-form-item">
+            <label className="client-edit-form-item-label" htmlFor="city">
+              Ville :
+            </label>
+            <input
+              type="text"
+              id="city"
+              className="client-edit-form-item-input"
+              onChange={(event) =>
+                setFields({ ...fields, city: event.target.value })
+              }
+              required
+            />
+          </div>
+          <div className="client-edit-form-item">
+            <label className="client-edit-form-item-label" htmlFor="number">
+              Numéro de téléphone :
+            </label>
+            <input
+              type="text"
+              id="number"
+              className="client-edit-form-item-input"
+              onChange={(event) =>
+                setFields({ ...fields, number: event.target.value })
+              }
+              required
+            />
+          </div>
           <button type="submit" className="register-button">
-            Ajout du client
+            Valider
           </button>
+          <NavLink className="action-item-button" to="/product">
+            <button type="button" className="action-item-button">
+              Voir les produits
+            </button>
+          </NavLink>
         </form>
       </div>
       <Footer />
