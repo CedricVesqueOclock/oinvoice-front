@@ -8,8 +8,6 @@ import { getAPI } from '../../utils/api';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
-import './Product.scss';
-
 interface DocumentLineData {
   quantity: number;
   price: number;
@@ -26,7 +24,7 @@ function DocumentLine() {
 
   useEffect(function () {
     const handle = async function () {
-      setProduct((await getAPI().get('/product')).data);
+      setProduct((await getAPI().get('/document/:id')).data);
     };
 
     handle();
@@ -76,7 +74,7 @@ function DocumentLine() {
                 return (
                   <tr>
                     <td>{line.quantity}</td>
-                    <td>{line.product_id>}</td>
+                    <td>{line.product_id}</td>
                     <td>{line.category}</td>
                     <td>{line.client_id}</td>
                     <td>{line.document_id} %</td>
@@ -107,4 +105,4 @@ function DocumentLine() {
   );
 }
 
-export default Product;
+export default QuotationEdit;
