@@ -20,8 +20,8 @@ import ClientAdd from './pages/ClientAdd/ClientAdd';
 import ClientEdit from './pages/ClientEdit/ClientEdit';
 import Invoice from './pages/Invoice/Invoice';
 import Quotation from './pages/Quotation/Quotation';
+import QuotationAdd from './pages/QuotationAdd/QuotationAdd';
 import QuotationEdit from './pages/QuotationEdit/QuotationEdit';
-import QuotationAdd from './pages/Quotation';
 import Account from './pages/Account/Account';
 import Product from './pages/Product/Product';
 import ProductAdd from './pages/ProductAdd/ProductAdd';
@@ -46,6 +46,7 @@ function Root() {
       <Route path="/client/:id" element={<ClientEdit />} />
       <Route path="/invoice" element={<Invoice />} />
       <Route path="/quotation" element={<Quotation />} />
+      <Route path="/quotation/add" element={<QuotationAdd />} />
       <Route path="/quotation/:id" element={<QuotationEdit />} />
       <Route path="/product" element={<Product />} />
       <Route path="/product/add" element={<ProductAdd />} />
