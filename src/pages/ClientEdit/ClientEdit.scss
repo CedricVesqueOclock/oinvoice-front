@@ -1,0 +1,35 @@
+@use '../../styles/variables' as v;
+
+.client {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-edit-form {
+  margin: auto;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.client-edit-form-item {
+  padding: 1rem;
+  width: 90%;
+  justify-content: space-around;
+}
+
+.client-edit-form-item-label {
+  margin-right: 2rem;
+}
+
+.client-edit-form-item-input {
+  width: 100%;
+}
+
+.register-button {
+  margin-top: 1.5rem;
+  border-radius: 10px;
+  padding: 0 3rem;
+}

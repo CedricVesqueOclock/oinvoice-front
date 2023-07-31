@@ -3,16 +3,17 @@ import React from 'react';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
-import './Quotations.scss';
+import './Quotation.scss';
 
-function Quotations() {
+function Quotation() {
   return (
     <>
       <Header />
-      <h1>Factures</h1>
+      <h1>Devis
+      </h1>
       <Footer />
     </>
   )
 }
 
-export default Quotations;
+export default Quotation;

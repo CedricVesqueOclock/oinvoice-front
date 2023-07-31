@@ -1,6 +1,6 @@
 @use '../../styles/variables' as v;
 
-.products {
+.product {
 }
 
 table {
@@ -17,12 +17,17 @@ th {
   font-size: 0.9rem;
 }
 
-.products-array {
+.product-array {
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-button:hover {
+.product-button {
+  display: inline;
+  justify-content: flex-end;
+}
+
+.product-button:hover {
   background-color: v.$color-primary;
   color: v.$bg-color-primary;
 }
