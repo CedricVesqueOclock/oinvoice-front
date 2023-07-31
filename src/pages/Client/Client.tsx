@@ -52,7 +52,7 @@ function Client() {
     <>
       <Header />
       <div className="client">
-        <h1 className="user-name">Petruchka</h1>
+        <h1 className="user-name">Nom de l'utilisateur</h1>
         <h2 className="client-title">Liste des clients</h2>
         <NavLink className="client-button" type="button" to="/client/add">
           Ajouter un client

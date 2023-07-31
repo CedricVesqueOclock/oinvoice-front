@@ -1,19 +1,103 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import EditIcon from '@mui/icons-material/Edit';
+
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+
+import { getAPI } from '../../utils/api';
 
 import './Quotation.scss';
 
+interface QuotationData {
+  id: number;
+  order_date: Date;
+  delivery_date: Date;
+}
+
 function Quotation() {
+  // const [fields, setFields] = useState({});
+  // const navigate = useNavigate();
+  // const [user, setUser] = useState({});
+  const [quotation, setQuotation] = useState([]);
+
+  useEffect(function () {
+    const handle = async function () {
+      setQuotation((await getAPI().get('/document/quotation')).data);
+    };
+
+    handle();
+  }, []);
+
+  function remove(id: number) {
+    getAPI()
+      .delete(`/document/quotation/${id}`)
+      .then(function () {
+        setQuotation(
+          quotation.filter(function (client: QuotationData) {
+            quotation.id != id;
+          })
+        );
+        alert('Facture supprimée');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   return (
     <>
       <Header />
-      <h1>Devis
-      </h1>
+      <div className="quotations">
+        <h1 className="quotations-name">Nom de l'utilisateur</h1>
+        <h2 className="quotations-title">Liste des devis</h2>
+        <button className="quotations-button" type="button">
+          Ajouter un client
+        </button>
+        <div className="quotations-array">
+          <table>
+            <thead className="quotations-array-header">
+              <tr>
+                <th>Numéro de devis</th>
+                <th>Date de commande</th>
+                <th>Date de livraison</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody className="quotations-array-body">
+              {quotation.map(function (quotation: QuotationData) {
+                return (
+                  <tr>
+                    <td>{quotation.id}</td>
+                    <td>{quotation.order_date}</td>
+                    <td>{quotation.delivery_date}</td>
+                    <td>
+                      <a
+                        className="delete-button"
+                        href={`/quotation/${quotation.id}`}
+                      >
+                        <EditIcon />
+                      </a>
+                      <button
+                        type="button"
+                        className="delete-button"
+                        onClick={(e) => remove(quotation.id)}
+                      >
+                        <DeleteForeverIcon />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
       <Footer />
     </>
-  )
+  );
 }
 
 export default Quotation;

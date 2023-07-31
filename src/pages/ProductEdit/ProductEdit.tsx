@@ -52,7 +52,7 @@ function ProductEdit() {
     <>
       <Header />
       <div className="product">
-        <h1 className="user-name">Petruchka</h1>
+        <h1 className="user-name">Nom de l'utilisateur</h1>
 
         {product && (
           <form className="client-edit-form" onSubmit={Submit}>

@@ -1,9 +1,5 @@
 @use '../../styles/variables' as v;
 
-h1{
-  color: v.$color-primary!important;
-}
-
 footer {
   background-color: v.$bg-color-primary;
   color: v.$color-primary;
