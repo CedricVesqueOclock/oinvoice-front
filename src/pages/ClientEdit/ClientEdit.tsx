@@ -1,10 +1,15 @@
+/* eslint-disable no-console */
+/* eslint-disable func-names */
+/* eslint-disable no-alert */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable react/jsx-key */
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
+
+import { getAPI } from '../../utils/api';
+
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import { getAPI } from '../../utils/api';
 
 import './ClientEdit.scss';
 
@@ -22,10 +27,11 @@ interface ClientData {
 }
 
 function ClientEdit() {
+  const [user, setUser] = useState({});
   const [fields, setFields] = useState({});
-  const navigate = useNavigate();
   const [client, setClient] = useState<ClientData | undefined>(undefined);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   function Submit(event: { preventDefault: () => void }) {
     event.preventDefault();
@@ -43,6 +49,18 @@ function ClientEdit() {
       });
   }
 
+  useEffect(function () {
+    getAPI()
+      .get('/user/me', user)
+      .then(function (res) {
+        setUser(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(
     function () {
       const handle = async function () {
@@ -58,7 +76,7 @@ function ClientEdit() {
     <>
       <Header />
       <div className="client">
-        <h1 className="user-name">Nom de l'utilisateur</h1>
+        <h1 className="user-name">{user.name}</h1>
 
         {client && (
           <form className="client-edit-form" onSubmit={Submit}>

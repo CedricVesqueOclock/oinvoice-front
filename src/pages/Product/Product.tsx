@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
+/* eslint-disable func-names */
 import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
@@ -20,8 +22,6 @@ interface ProductData {
 }
 
 function Product() {
-  const [fields, setFields] = useState({});
-  const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [product, setProduct] = useState([]);
 
@@ -31,6 +31,18 @@ function Product() {
     };
 
     handle();
+  }, []);
+
+  useEffect(function () {
+    getAPI()
+      .get('/user/me', user)
+      .then(function (res) {
+        setUser(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function remove(id: number) {
@@ -53,7 +65,7 @@ function Product() {
     <>
       <Header />
       <div className="products">
-        <h1 className="products-name">Nom de l'utilsateur</h1>
+        <h1 className="products-name">{user.name}</h1>
         <h2 className="products-title">Liste des produits</h2>
         <div className="products-array">
           <NavLink to="/product/add">
