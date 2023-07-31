@@ -72,11 +72,11 @@ function DocumentLine() {
               </tr>
             </thead>
             <tbody className="client-array-body">
-              {product.map(function (line: ProductData) {
+              {product.map(function (line: DocumentLineData) {
                 return (
                   <tr>
                     <td>{line.quantity}</td>
-                    <td>{line.product_id>}
+                    <td>{line.product_id>}</td>
                     <td>{line.category}</td>
                     <td>{line.client_id}</td>
                     <td>{line.document_id} %</td>

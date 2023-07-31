@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable func-names */
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 
@@ -16,6 +18,7 @@ interface ProductData {
 }
 
 function ProductEdit() {
+  const [user, setUser] = useState({});
   const [fields, setFields] = useState({});
   const navigate = useNavigate();
   const [product, setProduct] = useState<ProductData | undefined>(undefined);
@@ -37,6 +40,18 @@ function ProductEdit() {
       });
   }
 
+  useEffect(function () {
+    getAPI()
+      .get('/user/me', user)
+      .then(function (res) {
+        setUser(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(
     function () {
       const handle = async function () {
@@ -52,7 +67,7 @@ function ProductEdit() {
     <>
       <Header />
       <div className="product">
-        <h1 className="user-name">Nom de l'utilisateur</h1>
+        <h1 className="user-name">{user.name}</h1>
 
         {product && (
           <form className="client-edit-form" onSubmit={Submit}>

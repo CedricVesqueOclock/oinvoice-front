@@ -1,13 +1,15 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
+/* eslint-disable func-names */
 import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
+import { getAPI } from '../../utils/api';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-
-import { getAPI } from '../../utils/api';
 
 import './Client.scss';
 
@@ -21,8 +23,20 @@ interface ClientData {
 function Client() {
   // const [fields, setFields] = useState({});
   // const navigate = useNavigate();
-  // const [user, setUser] = useState({});
+  const [user, setUser] = useState({});
   const [client, setClient] = useState([]);
+
+  useEffect(function () {
+    getAPI()
+      .get('/user/me', user)
+      .then(function (res) {
+        setUser(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(function () {
     const handle = async function () {
@@ -52,7 +66,7 @@ function Client() {
     <>
       <Header />
       <div className="client">
-        <h1 className="user-name">Nom de l'utilisateur</h1>
+        <h1 className="user-name">{user.name}</h1>
         <h2 className="client-title">Liste des clients</h2>
         <NavLink className="client-button" type="button" to="/client/add">
           Ajouter un client

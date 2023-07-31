@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getAPI } from '../../utils/api';
 
 import Header from '../../components/Header/Header';
@@ -9,25 +9,23 @@ import './Dashboard.scss';
 
 function Dashboard() {
   const [user, setUser] = useState({});
-  const navigate = useNavigate();
 
   useEffect(function () {
     getAPI()
       .get('/user/me', user)
       .then(function (res) {
-        // récupération des datas
         setUser(res.data);
-        console.log(res.data);
       })
       .catch(function (error) {
         console.log(error);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <Header />
-      <h1 className='name'>{user.name}</h1>
+      <h1 className="name">{user.name}</h1>
       <section className="statistics">
         <img src="" alt="graph" />
         <div className="statistics-items">
