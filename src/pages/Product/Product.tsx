@@ -15,6 +15,8 @@ interface ProductData {
   name: string;
   description: string;
   category: string;
+  price_ht: number;
+  rate: number;
 }
 
 function Product() {
@@ -67,6 +69,7 @@ function Product() {
                 <th>Catégorie</th>
                 <th>Prix HT</th>
                 <th>Taux de TVA</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody className="client-array-body">
@@ -77,6 +80,7 @@ function Product() {
                     <td>{product.name}</td>
                     <td>{product.category}</td>
                     <td>{product.price_ht}</td>
+                    <td>{product.rate} %</td>
                     <td>
                       <a
                         className="delete-button"
