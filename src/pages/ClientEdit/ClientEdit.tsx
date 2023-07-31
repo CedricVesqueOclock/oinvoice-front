@@ -57,7 +57,7 @@ function ClientEdit() {
   return (
     <>
       <Header />
-      <div className="client">
+      <div className="client-edit">
         <h1 className="user-name">Nom de l'utilisateur</h1>
 
         {client && (

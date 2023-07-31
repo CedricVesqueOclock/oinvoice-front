@@ -1,59 +1,110 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import EditIcon from '@mui/icons-material/Edit';
+import { getAPI } from '../../utils/api';
+
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import { getAPI, logout } from '../../utils/api';
-import { useNavigate } from 'react-router-dom';
 
-import './ClientEdit.scss';
+import './Product.scss';
 
-interface ClientData {
-  id: number;
-  name: string;
-  firstname: string;
-  mail: string;
+interface DocumentLineData {
+  quantity: number;
+  price: number;
+  product_id: number;
+  client_id: number;
+  document_id: number;
 }
 
-function ClientEdit() {
+function DocumentLine() {
   const [fields, setFields] = useState({});
   const navigate = useNavigate();
   const [user, setUser] = useState({});
-  const [client, setClient] = useState([]);
+  const [product, setProduct] = useState([]);
 
   useEffect(function () {
-    // getAPI().get("http://0.0.0.0:3000/api/client", fields)
-    // .then(function(res){
-    //   //récupération des datas
-    //   setFields(res.data);
-    //   console.log(res.data);
-    // })
-    // .catch(function(error){
-    //   console.log(error);
-    // })
-
     const handle = async function () {
-      setClient((await getAPI().get('/client')).data);
-      console.log(client);
+      setProduct((await getAPI().get('/product')).data);
     };
 
     handle();
   }, []);
 
+  function remove(id: number) {
+    getAPI()
+      .delete(`/product/${id}`)
+      .then(function () {
+        setProduct(
+          product.filter(function (product: DocumentLineData) {
+            product.id != id;
+          })
+        );
+        alert('produit supprimé');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   return (
     <>
       <Header />
-      <div className="client">
-        <h1 className="user-name">Petruchka</h1>
-        <h2 className="client-title">Liste des client</h2>
-        <button className="client-button" type="button">
-          Ajouter un client
-        </button>
-        
-        
-        {/*-- votre formulaire --*/}
+      <div className="products">
+        <h1 className="products-name">Nom de l'utilsateur</h1>
+        <h2 className="products-title">Facture  1234</h2>
+        <div className="products-array">
+          <NavLink to="/product/add">
+            <button className="products-button" type="button">
+              Ajouter un produit
+            </button>
+          </NavLink>
+          <table>
+            <thead className="produits-array-header">
+              <tr>
+                <th>Quantité</th>
+                <th>Id Produit</th>
+                <th>Prix</th>
+                <th>Id client</th>
+                <th>Document ID</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody className="client-array-body">
+              {product.map(function (line: ProductData) {
+                return (
+                  <tr>
+                    <td>{line.quantity}</td>
+                    <td>{line.product_id>}
+                    <td>{line.category}</td>
+                    <td>{line.client_id}</td>
+                    <td>{line.document_id} %</td>
+                    <td>
+                      <a
+                        className="delete-button"
+                        href={`/product/${line.id}`}
+                      >
+                        <EditIcon />
+                      </a>
+                      <button
+                        type="button"
+                        className="delete-button"
+                        onClick={(e) => remove(line.id)}
+                      >
+                        <DeleteForeverIcon />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
       <Footer />
     </>
   );
 }
 
-export default ClientEdit;
+export default Product;
