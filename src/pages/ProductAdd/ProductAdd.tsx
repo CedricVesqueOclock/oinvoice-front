@@ -49,7 +49,6 @@ function ProductAdd() {
       <div className="product">
         <h1 className="user-name">{user.name}</h1>
 
-        {/* {product && ( */}
         <form className="client-edit-form" onSubmit={Submit}>
           <h2>Ajouter un produit</h2>
           <div className="client-edit-form-item">
@@ -60,7 +59,6 @@ function ProductAdd() {
               type="text"
               id="name"
               className="client-edit-form-item-input"
-              // defaultValue={product.name}
               onChange={(event) =>
                 setFields({ ...fields, name: event.target.value })
               }
@@ -78,7 +76,6 @@ function ProductAdd() {
               type="text"
               id="description"
               className="client-edit-form-item-input"
-              // defaultValue={product.description}
               onChange={(event) =>
                 setFields({ ...fields, description: event.target.value })
               }
@@ -93,7 +90,6 @@ function ProductAdd() {
               type="text"
               id="category"
               className="client-edit-form-item-input"
-              // defaultValue={product.category}
               onChange={(event) =>
                 setFields({ ...fields, category: event.target.value })
               }
@@ -108,7 +104,6 @@ function ProductAdd() {
               type="text"
               id="price_ht"
               className="client-edit-form-item-input"
-              // defaultValue={product.price_ht}
               onChange={(event) =>
                 setFields({ ...fields, price_ht: event.target.value })
               }
@@ -123,7 +118,6 @@ function ProductAdd() {
               type="text"
               id="rate"
               className="client-edit-form-item-input"
-              // defaultValue={product.rate}
               onChange={(event) =>
                 setFields({ ...fields, rate: event.target.value })
               }
@@ -139,7 +133,6 @@ function ProductAdd() {
             </button>
           </NavLink>
         </form>
-        {/* )} */}
       </div>
       <Footer />
     </>
