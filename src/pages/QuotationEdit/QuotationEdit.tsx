@@ -23,13 +23,7 @@ interface UserData {
 }
 
 function QuotationEdit() {
-<<<<<<< HEAD
-  const [user, setUser] = useState<UserData>({ name: '' });
-  const [documentLine, setDocumentLine] = useState<DocumentLineData | null>(null);
-  const { id } = useParams();
-=======
   const [fields, setFields] = useState({});
->>>>>>> 704ab5cd31991113381607442397f3dc384016da
   const navigate = useNavigate();
 
   useEffect(function () {
