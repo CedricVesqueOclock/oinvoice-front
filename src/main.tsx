@@ -46,7 +46,7 @@ function Root() {
       <Route path="/quotation" element={<Quotation />} />
       <Route path="/product" element={<Product />} />
       <Route path="/product/add" element={<ProductAdd />} />
-      <Route path="/product/edit/:id" element={<ProductEdit />} />
+      <Route path="/product/:id" element={<ProductEdit />} />
       <Route path="/account" element={<Account />} />
     </Routes>
   );

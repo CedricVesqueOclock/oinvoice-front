@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { getAPI } from '../../utils/api';
-
-// Import du scss
-import './ClientAdd.scss';
 
 // Import des composants
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
+// Import du scss
+import './ClientAdd.scss';
+
 function ClientAdd() {
   const [fields, setFields] = useState({});
   const navigate = useNavigate();
+
   async function Submit(event: { preventDefault: () => void }) {
     event.preventDefault();
 

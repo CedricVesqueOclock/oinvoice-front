@@ -1,0 +1,33 @@
+@use '../../styles/variables' as v;
+
+.product {
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid black;
+  margin: auto;
+}
+
+td,
+th {
+  border: 1px solid black;
+  text-align: center;
+  padding: 2px 8px 0;
+  font-size: 0.9rem;
+}
+
+.product-array {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.product-button {
+  display: inline;
+  justify-content: flex-end;
+}
+
+.product-button:hover {
+  background-color: v.$color-primary;
+  color: v.$bg-color-primary;
+}
