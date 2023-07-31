@@ -51,7 +51,7 @@ function Invoice() {
     <>
       <Header />
       <div className="invoices">
-        <h1 className="invoices-name">Petruchka</h1>
+        <h1 className="invoices-name">Nom de l'utilisateur</h1>
         <h2 className="invoices-title">Liste des factures</h2>
         <button className="invoices-button" type="button">
           Ajouter un client

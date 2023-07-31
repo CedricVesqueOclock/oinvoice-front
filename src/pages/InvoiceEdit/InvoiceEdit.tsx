@@ -42,7 +42,7 @@ function InvoiceEdit() {
     <>
       <Header />
       <div className="invoice">
-        <h1 className="user-name">Petruchka</h1>
+        <h1 className="user-name">Nom de l'utilisateur</h1>
         <h2 className="invoice-title">Liste des factures</h2>
         <button className="invoice-button" type="button">
           Ajouter une facture

@@ -58,7 +58,7 @@ function ClientEdit() {
     <>
       <Header />
       <div className="client">
-        <h1 className="user-name">Petruchka</h1>
+        <h1 className="user-name">Nom de l'utilisateur</h1>
 
         {client && (
           <form className="client-edit-form" onSubmit={Submit}>

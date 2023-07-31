@@ -53,7 +53,7 @@ function Product() {
     <>
       <Header />
       <div className="products">
-        <h1 className="products-name">Petruchka</h1>
+        <h1 className="products-name">Nom de l'utilsateur</h1>
         <h2 className="products-title">Liste des produits</h2>
         <div className="products-array">
           <NavLink to="/product/add">
