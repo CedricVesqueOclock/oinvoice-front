@@ -1,6 +1,7 @@
 @use '../../styles/variables' as v;
 
 .products {
+  width: 90%;
 }
 
 table {
@@ -20,6 +21,10 @@ th {
 .products-array {
   flex-direction: column;
   flex-wrap: wrap;
+}
+
+.products-button {
+  margin: 2rem;
 }
 
 button:hover {

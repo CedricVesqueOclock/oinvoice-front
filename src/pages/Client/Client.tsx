@@ -7,7 +7,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
-import { getAPI, logout } from '../../utils/api';
+import { getAPI } from '../../utils/api';
 
 import './Client.scss';
 
@@ -19,9 +19,9 @@ interface ClientData {
 }
 
 function Client() {
-  const [fields, setFields] = useState({});
-  const navigate = useNavigate();
-  const [user, setUser] = useState({});
+  // const [fields, setFields] = useState({});
+  // const navigate = useNavigate();
+  // const [user, setUser] = useState({});
   const [client, setClient] = useState([]);
 
   useEffect(function () {
@@ -84,6 +84,7 @@ function Client() {
                         <EditIcon />
                       </a>
                       <button
+                        type="button"
                         className="delete-button"
                         onClick={(e) => remove(client.id)}
                       >

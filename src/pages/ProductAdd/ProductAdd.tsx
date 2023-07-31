@@ -122,7 +122,7 @@ function ProductAdd() {
           </div>
           <div className="client-edit-form-item">
             <label className="client-edit-form-item-label" htmlFor="rate">
-              Taux :
+              Taux de TVA:
             </label>
             <input
               type="text"

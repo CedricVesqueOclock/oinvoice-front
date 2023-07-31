@@ -89,6 +89,7 @@ function Product() {
                         <EditIcon />
                       </a>
                       <button
+                        type="button"
                         className="delete-button"
                         onClick={(e) => remove(product.id)}
                       >
