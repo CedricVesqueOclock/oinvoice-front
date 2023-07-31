@@ -1,13 +1,14 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
+/* eslint-disable func-names */
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
+import { getAPI } from '../../utils/api';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-
-import { getAPI } from '../../utils/api';
 
 import './Invoice.scss';
 
@@ -20,7 +21,7 @@ interface InvoiceData {
 function Invoice() {
   // const [fields, setFields] = useState({});
   // const navigate = useNavigate();
-  // const [user, setUser] = useState({});
+  const [user, setUser] = useState({});
   const [invoice, setInvoice] = useState([]);
 
   useEffect(function () {
@@ -29,6 +30,18 @@ function Invoice() {
     };
 
     handle();
+  }, []);
+
+  useEffect(function () {
+    getAPI()
+      .get('/user/me', user)
+      .then(function (res) {
+        setUser(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function remove(id: number) {
@@ -51,7 +64,7 @@ function Invoice() {
     <>
       <Header />
       <div className="invoices">
-        <h1 className="invoices-name">Nom de l'utilisateur</h1>
+        <h1 className="invoices-name">{user.name}</h1>
         <h2 className="invoices-title">Liste des factures</h2>
         <button className="invoices-button" type="button">
           Ajouter un client

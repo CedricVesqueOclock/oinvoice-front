@@ -1,5 +1,8 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
+/* eslint-disable func-names */
 import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { getAPI } from '../../utils/api';
 
 import Header from '../../components/Header/Header';
@@ -7,19 +10,10 @@ import Footer from '../../components/Footer/Footer';
 
 import './ProductAdd.scss';
 
-// interface ProductData {
-//   name: number;
-//   description: string;
-//   category: string;
-//   price_ht: string;
-//   rate: string;
-// }
-
 function ProductAdd() {
+  const [user, setUser] = useState({});
   const [fields, setFields] = useState({});
   const navigate = useNavigate();
-  // const [product, setProduct] = useState<ProductData | undefined>(undefined);
-  // const { id } = useParams();
 
   async function Submit(event: { preventDefault: () => void }) {
     event.preventDefault();
@@ -37,22 +31,23 @@ function ProductAdd() {
       });
   }
 
-  // useEffect(
-  //   function () {
-  //     const handle = async function () {
-  //       setProduct((await getAPI().get(`/product/${id}`)).data);
-  //     };
-
-  //     handle();
-  //   },
-  //   [id]
-  // );
+  useEffect(function () {
+    getAPI()
+      .get('/user/me', user)
+      .then(function (res) {
+        setUser(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
       <Header />
       <div className="product">
-        <h1 className="user-name">Petruchka</h1>
+        <h1 className="user-name">{user.name}</h1>
 
         {/* {product && ( */}
         <form className="client-edit-form" onSubmit={Submit}>
