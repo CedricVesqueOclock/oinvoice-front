@@ -16,7 +16,7 @@ interface DocumentLineData {
   document_id: number;
 }
 
-function DocumentLine() {
+function QuotationEdit() {
   const [fields, setFields] = useState({});
   const navigate = useNavigate();
   const [user, setUser] = useState({});
