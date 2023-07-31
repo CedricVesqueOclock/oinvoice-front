@@ -66,12 +66,14 @@ function Client() {
     <>
       <Header />
       <div className="client">
-        <h1 className="user-name">{user.name}</h1>
-        <h2 className="client-title">Liste des clients</h2>
-        <NavLink className="client-button" type="button" to="/client/add">
-          Ajouter un client
-        </NavLink>
+        <div className="client-page-title">
+          <h1 className="user-name">{user.name}</h1>
+          <h2 className="client-title">Liste des clients</h2>
+        </div>
         <div className="client-array">
+          <NavLink className="client-button" type="button" to="/client/add">
+            Ajouter un client
+          </NavLink>
           <table>
             <thead className="client-array-header">
               <tr>
