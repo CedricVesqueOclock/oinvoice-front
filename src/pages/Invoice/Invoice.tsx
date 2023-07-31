@@ -13,8 +13,8 @@ import './Invoice.scss';
 
 interface InvoiceData {
   id: number;
-  order_date: string;
-  delivery_date: string;
+  order_date: Date;
+  delivery_date: Date;
 }
 
 function Invoice() {
@@ -25,7 +25,7 @@ function Invoice() {
 
   useEffect(function () {
     const handle = async function () {
-      setInvoice((await getAPI().get('/document')).data);
+      setInvoice((await getAPI().get('/invoice')).data);
     };
 
     handle();
@@ -72,7 +72,7 @@ function Invoice() {
                   <tr>
                     <td>{invoice.id}</td>
                     <td>{invoice.order_date}</td>
-                    <td>{invoice.delivery_date}</td>
+                    <td>{invoice.delivry_date}</td>
                     <td>
                       <a
                         className="delete-button"
