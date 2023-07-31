@@ -24,7 +24,6 @@ interface ClientData {
 function ClientEdit() {
   const [fields, setFields] = useState({});
   const navigate = useNavigate();
-  const [user, setUser] = useState({});
   const [client, setClient] = useState<ClientData | undefined>(undefined);
   const { id } = useParams();
 
@@ -82,92 +81,133 @@ function ClientEdit() {
               <input
                 type="text"
                 id="lastname"
+                className="client-edit-form-item-input"
                 defaultValue={client.lastname}
                 onChange={(event) =>
                   setFields({ ...fields, lastname: event.target.value })
                 }
               />
             </div>
-            <label htmlFor="name">Prénom :</label>
-            <input
-              type="text"
-              id="firstname"
-              defaultValue={client.firstname}
-              onChange={(event) =>
-                setFields({ ...fields, firstname: event.target.value })
-              }
-              required
-            />
-            <label htmlFor="mail">Email :</label>
-            <input
-              type="mail"
-              id="mail"
-              defaultValue={client.mail}
-              onChange={(event) =>
-                setFields({ ...fields, mail: event.target.value })
-              }
-              required
-            />
-            <label htmlFor="address">Adresse :</label>
-            <input
-              type="text"
-              id="address"
-              defaultValue={client.address}
-              onChange={(event) =>
-                setFields({ ...fields, address: event.target.value })
-              }
-              required
-            />
-            <label htmlFor="zip_code">Code postal :</label>
-            <input
-              type="text"
-              id="zip_code"
-              defaultValue={client.zip_code}
-              onChange={(event) =>
-                setFields({ ...fields, zip_code: event.target.value })
-              }
-              required
-            />
-            <label htmlFor="city">Ville :</label>
-            <input
-              type="text"
-              id="city"
-              defaultValue={client.city}
-              onChange={(event) =>
-                setFields({ ...fields, city: event.target.value })
-              }
-              required
-            />
-            <label htmlFor="number">Téléphone :</label>
-            <input
-              type="text"
-              id="number"
-              defaultValue={client.number}
-              onChange={(event) =>
-                setFields({ ...fields, number: event.target.value })
-              }
-              required
-            />
-            <label htmlFor="siret">Siret :</label>
-            <input
-              type="text"
-              id="siret"
-              defaultValue={client.siret}
-              onChange={(event) =>
-                setFields({ ...fields, siret: event.target.value })
-              }
-            />
-            <label htmlFor="siren">Siren :</label>
-            <input
-              type="text"
-              id="siren"
-              defaultValue={client.siren}
-              onChange={(event) =>
-                setFields({ ...fields, siren: event.target.value })
-              }
-            />
+            <div className="client-edit-form-item">
+              <label className="client-edit-form-item-label" htmlFor="name">
+                Prénom :
+              </label>
+              <input
+                type="text"
+                id="firstname"
+                className="client-edit-form-item-input"
+                defaultValue={client.firstname}
+                onChange={(event) =>
+                  setFields({ ...fields, firstname: event.target.value })
+                }
+                required
+              />
+            </div>
+            <div className="client-edit-form-item">
+              <label className="client-edit-form-item-label" htmlFor="mail">
+                Email :
+              </label>
+              <input
+                type="mail"
+                id="mail"
+                className="client-edit-form-item-input"
+                defaultValue={client.mail}
+                onChange={(event) =>
+                  setFields({ ...fields, mail: event.target.value })
+                }
+                required
+              />
+            </div>
+            <div className="client-edit-form-item">
+              <label className="client-edit-form-item-label" htmlFor="address">
+                Adresse :
+              </label>
+              <input
+                type="text"
+                id="address"
+                className="client-edit-form-item-input"
+                defaultValue={client.address}
+                onChange={(event) =>
+                  setFields({ ...fields, address: event.target.value })
+                }
+                required
+              />
+            </div>
+            <div className="client-edit-form-item">
+              <label className="client-edit-form-item-label" htmlFor="zip_code">
+                Code postal :
+              </label>
+              <input
+                type="text"
+                id="zip_code"
+                className="client-edit-form-item-input"
+                defaultValue={client.zip_code}
+                onChange={(event) =>
+                  setFields({ ...fields, zip_code: event.target.value })
+                }
+                required
+              />
+            </div>
+            <div className="client-edit-form-item">
+              <label className="client-edit-form-item-label" htmlFor="city">
+                Ville :
+              </label>
+              <input
+                type="text"
+                id="city"
+                className="client-edit-form-item-input"
+                defaultValue={client.city}
+                onChange={(event) =>
+                  setFields({ ...fields, city: event.target.value })
+                }
+                required
+              />
+            </div>
+            <div className="client-edit-form-item">
+              <label className="client-edit-form-item-label" htmlFor="number">
+                Téléphone :
+              </label>
+              <input
+                type="text"
+                id="number"
+                className="client-edit-form-item-input"
+                defaultValue={client.number}
+                onChange={(event) =>
+                  setFields({ ...fields, number: event.target.value })
+                }
+                required
+              />
+            </div>
+            <div className="client-edit-form-item">
+              <label className="client-edit-form-item-label" htmlFor="siret">
+                Siret :
+              </label>
+              <input
+                type="text"
+                id="siret"
+                className="client-edit-form-item-input"
+                defaultValue={client.siret}
+                onChange={(event) =>
+                  setFields({ ...fields, siret: event.target.value })
+                }
+              />
+            </div>
+            <div className="client-edit-form-item">
+              <label className="client-edit-form-item-label" htmlFor="siren">
+                Siren :
+              </label>
+              <input
+                type="text"
+                id="siren"
+                className="client-edit-form-item-input"
+                defaultValue={client.siren}
+                onChange={(event) =>
+                  setFields({ ...fields, siren: event.target.value })
+                }
+              />
+            </div>
             {/* <input><a href={'/client/edit/' + client.id}>Modifier</a></input>
-                <input><button onClick={e => remove(client.id)}>Supprimer</button></input> */}
+            <input><button onClick={e => remove(client.id)}>Supprimer</button></input> */}
             <button type="submit" className="register-button">
               Valider
             </button>

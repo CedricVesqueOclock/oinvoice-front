@@ -22,6 +22,7 @@ import Invoice from './pages/Invoice/Invoice';
 import Quotation from './pages/Quotation/Quotation';
 import Account from './pages/Account/Account';
 import Product from './pages/Product/Product';
+import ProductAdd from './pages/ProductAdd/ProductAdd';
 import ProductEdit from './pages/ProductEdit/ProductEdit';
 
 // On importe notre fichier de style global
@@ -39,11 +40,12 @@ function Root() {
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/client" element={<Client />} />
-      <Route path="/client/:id" element={<ClientEdit />} />
       <Route path="/client/add" element={<ClientAdd />} />
+      <Route path="/client/:id" element={<ClientEdit />} />
       <Route path="/invoice" element={<Invoice />} />
       <Route path="/quotation" element={<Quotation />} />
       <Route path="/product" element={<Product />} />
+      <Route path="/product/add" element={<ProductAdd />} />
       <Route path="/product/edit/:id" element={<ProductEdit />} />
       <Route path="/account" element={<Account />} />
     </Routes>

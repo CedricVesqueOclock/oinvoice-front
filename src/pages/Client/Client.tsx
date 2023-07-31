@@ -25,19 +25,8 @@ function Client() {
   const [client, setClient] = useState([]);
 
   useEffect(function () {
-    // getAPI().get("http://0.0.0.0:3000/api/client", fields)
-    // .then(function(res){
-    //   //récupération des datas
-    //   setFields(res.data);
-    //   console.log(res.data);
-    // })
-    // .catch(function(error){
-    //   console.log(error);
-    // })
-
     const handle = async function () {
       setClient((await getAPI().get('/client')).data);
-      console.log(client);
     };
 
     handle();
