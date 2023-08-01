@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 import './Dashboard.scss';
+import { Chart } from 'chart.js';
 
 function Dashboard() {
   const [user, setUser] = useState({});
@@ -27,7 +28,9 @@ function Dashboard() {
       <Header />
       <h1 className="name">{user.name}</h1>
       <section className="statistics">
-        <img src="" alt="graph" />
+        <div>
+          <canvas id="myChart" />
+        </div>
         <div className="statistics-items">
           <p>Devis en attente</p>
           <p>Facture en attente</p>
@@ -56,12 +59,12 @@ function Dashboard() {
             <h2>Devis</h2>
           </div>
           <div className="action-items-button">
-            <NavLink className="action-item-button" to="/quotation">
+            <NavLink to="/quotation">
               <button type="button" className="action-item-button">
                 Voir les devis
               </button>
             </NavLink>
-            <NavLink className="action-item-button" to="/quotation/add">
+            <NavLink to="/quotation/add">
               <button type="button" className="action-item-button">
                 Créer un devis
               </button>
