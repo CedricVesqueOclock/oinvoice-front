@@ -17,6 +17,11 @@ code {
     monospace;
 }
 
+.home-link {
+  text-decoration: none;
+  color: v.$color-primary;
+}
+
 .add-button {
   margin: 4rem 10rem;
   width: 12rem;

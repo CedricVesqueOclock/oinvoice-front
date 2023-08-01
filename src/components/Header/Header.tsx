@@ -39,8 +39,9 @@ function Header() {
         <div className="header-icons" onClick={handleClickToggler}>
           {isMenuOpen ? <Close fontSize="large" /> : <Menu fontSize="large" />}
         </div>
-
-        <h1>O'Invoice</h1>
+        <NavLink to="/dashboard" className="home-link">
+          <h1>O'Invoice</h1>
+        </NavLink>
 
         <NavLink className="header-icons" to="/login">
           {isConnected ? (
