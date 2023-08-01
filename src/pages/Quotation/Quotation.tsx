@@ -63,15 +63,15 @@ function Quotation() {
   return (
     <>
       <Header />
-      <div className="quotations">
-        <h1 className="quotations-name">Nom de l'utilisateur</h1>
-        <h2 className="quotations-title">Liste des devis</h2>
-        <button className="quotations-button" type="button">
-          Ajouter un client
-        </button>
-        <div className="quotations-array">
+      <div className="quotation">
+        <h1 className="quotation-name">Nom de l'utilisateur</h1>
+        <h2 className="quotation-title">Liste des devis</h2>
+        <div className="quotation-array">
+          <NavLink className="add-button" type="button" to="/quotation/add">
+            Ajouter un client
+          </NavLink>
           <table>
-            <thead className="quotations-array-header">
+            <thead className="quotation-array-header">
               <tr>
                 <th>Numéro de devis</th>
                 <th>Date de commande</th>
@@ -79,7 +79,7 @@ function Quotation() {
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody className="quotations-array-body">
+            <tbody className="quotation-array-body">
               {quotation.map(function (quotation: QuotationData) {
                 return (
                   <tr>

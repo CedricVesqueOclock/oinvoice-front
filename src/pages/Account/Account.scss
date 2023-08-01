@@ -1,1 +1,8 @@
 @use '../../styles/variables' as v;
+
+.form {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 12em);
+}
