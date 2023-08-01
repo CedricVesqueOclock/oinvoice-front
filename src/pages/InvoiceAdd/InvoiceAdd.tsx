@@ -10,7 +10,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 // Import du scss
-import './QuotationAdd.scss';
+import './InvoiceAdd.scss';
 
 function QuotationAdd() {
   const [user, setUser] = useState({});
@@ -24,8 +24,8 @@ function QuotationAdd() {
       .then(function (res) {
         // récupération des datas
         console.log(res.data);
-        alert('Devis ajouté');
-        navigate('/quotation');
+        alert('Facture ajouté');
+        navigate('/invoice');
       })
       .catch(function (error) {
         console.log(error);
@@ -51,7 +51,7 @@ function QuotationAdd() {
       <h1 className="user-name">{user.name}</h1>
 
         <form className="client-edit-form" onSubmit={Submit}>
-          <h2>Ajouter un Devis</h2>
+          <h2>Ajouter une Facture</h2>
           <div className="client-edit-form-item">
             <label className="client-edit-form-item-label" htmlFor="firstname">
               Type :
@@ -68,7 +68,7 @@ function QuotationAdd() {
           </div>
           <div className="client-edit-form-item">
             <label className="client-edit-form-item-label" htmlFor="order_date">
-              Date du devis :
+              Date de la facture :
             </label>
             <input
               type="date"
@@ -95,9 +95,9 @@ function QuotationAdd() {
           <button type="submit" className="register-button">
             Valider
           </button>
-          <NavLink className="action-item-button" to="/quotation">
+          <NavLink className="action-item-button" to="/invoice">
             <button type="button" className="action-item-button">
-              Voir les devis
+              Voir les factures
             </button>
           </NavLink>
         </form>
