@@ -12,14 +12,28 @@ body {
   width: 100%;
 }
 
-#root {
-}
-
-main {
-  min-height: 100%;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.home-link {
+  text-decoration: none;
+  color: v.$color-primary;
+}
+
+.add-button {
+  margin: 4rem 10rem;
+  width: 12rem;
+  text-align: center;
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: v.$color-primary;
+  background-color: v.$bg-color-primary;
+}
+
+.add-button:hover {
+  background-color: v.$color-primary;
+  color: v.$bg-color-primary;
 }

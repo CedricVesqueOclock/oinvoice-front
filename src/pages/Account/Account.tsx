@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { getAPI, logout } from '../../utils/api';
 
 // Import du scss
@@ -143,18 +143,18 @@ function Account() {
               setFields({ ...fields, siren: event.target.value })
             }
           />
-          <button type="submit" className="register-button">
+          <NavLink type="submit" className="add-button">
             Valider
-          </button>
+          </NavLink>
         </form>
         <hr />
         <div className="action">
-          <button type="submit" onClick={deleteAccount}>
+          <NavLink type="submit" onClick={deleteAccount} className='add-button'>
             Supprimer mon compte
-          </button>
-          <button type="submit" onClick={logoutAccount}>
+          </NavLink>
+          <NavLink type="submit" onClick={logoutAccount} className='add-button'>
             Se déconnecter
-          </button>
+          </NavLink>
         </div>
       </div>
       <Footer />

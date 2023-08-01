@@ -1,5 +1,8 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
+/* eslint-disable func-names */
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
@@ -18,9 +21,7 @@ interface QuotationData {
 }
 
 function Quotation() {
-  // const [fields, setFields] = useState({});
-  // const navigate = useNavigate();
-  // const [user, setUser] = useState({});
+  const [user, setUser] = useState({});
   const [quotation, setQuotation] = useState([]);
 
   useEffect(function () {
@@ -29,6 +30,18 @@ function Quotation() {
     };
 
     handle();
+  }, []);
+
+  useEffect(function () {
+    getAPI()
+      .get('/user/me', user)
+      .then(function (res) {
+        setUser(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function remove(id: number) {
@@ -50,15 +63,15 @@ function Quotation() {
   return (
     <>
       <Header />
-      <div className="quotations">
-        <h1 className="quotations-name">Nom de l'utilisateur</h1>
-        <h2 className="quotations-title">Liste des devis</h2>
-        <button className="quotations-button" type="button">
-          Ajouter un client
-        </button>
-        <div className="quotations-array">
+      <div className="quotation">
+        <h1 className="quotation-name">{user.name}</h1>
+        <h2 className="quotation-title">Liste des devis</h2>
+        <div className="quotation-array">
+          <NavLink className="add-button" type="button" to="/quotation/add">
+            Ajouter un devis
+          </NavLink>
           <table>
-            <thead className="quotations-array-header">
+            <thead className="quotation-array-header">
               <tr>
                 <th>Numéro de devis</th>
                 <th>Date de commande</th>
@@ -66,7 +79,7 @@ function Quotation() {
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody className="quotations-array-body">
+            <tbody className="quotation-array-body">
               {quotation.map(function (quotation: QuotationData) {
                 return (
                   <tr>

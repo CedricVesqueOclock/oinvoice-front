@@ -32,38 +32,40 @@ function login() {
   return (
     <>
       <Header />
-      <form onSubmit={Submit} action="" className="loginForm">
-        <h2>Connectez vous ...</h2>
-        <label htmlFor="mail">Votre E-mail :</label>
-        <input
-          type="mail"
-          onChange={(event) =>
-            setFields({ ...fields, mail: event.target.value })
-          }
-          required
-        />
-        <label htmlFor="mail">Votre mot de passe :</label>
-        <input
-          type="password"
-          name=""
-          id=""
-          onChange={(event) =>
-            setFields({ ...fields, password: event.target.value })
-          }
-          required
-        />
-        <button className="login-button" type="submit">
-          Se connecter
-        </button>
-        <p>Pas encore de compte?</p>
-        <NavLink
-          className="
+      <div className="login">
+        <form onSubmit={Submit} action="" className="loginForm">
+          <h2>Connectez vous ...</h2>
+          <label htmlFor="mail">Votre E-mail :</label>
+          <input
+            type="mail"
+            onChange={(event) =>
+              setFields({ ...fields, mail: event.target.value })
+            }
+            required
+          />
+          <label htmlFor="mail">Votre mot de passe :</label>
+          <input
+            type="password"
+            name=""
+            id=""
+            onChange={(event) =>
+              setFields({ ...fields, password: event.target.value })
+            }
+            required
+          />
+          <button className="login-button" type="submit">
+            Se connecter
+          </button>
+          <p>Pas encore de compte?</p>
+          <NavLink
+            className="
             menu-link"
-          to="/register"
-        >
-          <p>S'inscrire</p>
-        </NavLink>
-      </form>
+            to="/register"
+          >
+            <p>S'inscrire</p>
+          </NavLink>
+        </form>
+      </div>
       <Footer />
     </>
   );

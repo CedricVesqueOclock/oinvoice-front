@@ -71,7 +71,7 @@ function Client() {
           <h2 className="client-title">Liste des clients</h2>
         </div>
         <div className="client-array">
-          <NavLink className="client-button" type="button" to="/client/add">
+          <NavLink className="add-button" type="button" to="/client/add">
             Ajouter un client
           </NavLink>
           <table>
