@@ -1,33 +1,30 @@
-// @use '../../styles/variables' as v;
+@use '../../styles/variables' as v;
 
-// .products {
-//   width: 90%;
-// }
+table {
+  border-collapse: collapse;
+  border: 2px solid black;
+  margin: auto;
+}
 
-// table {
-//   border-collapse: collapse;
-//   border: 2px solid black;
-//   margin: auto;
-// }
+td,
+th {
+  border: 1px solid black;
+  text-align: center;
+  padding: 2px 8px 0;
+  font-size: 0.9rem;
+}
 
-// td,
-// th {
-//   border: 1px solid black;
-//   text-align: center;
-//   padding: 2px 8px 0;
-//   font-size: 0.9rem;
-// }
+.product {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 12em);
+}
 
-// .products-array {
-//   flex-direction: column;
-//   flex-wrap: wrap;
-// }
-
-// .products-button {
-//   margin: 2rem;
-// }
-
-// button:hover {
-//   background-color: v.$color-primary;
-//   color: v.$bg-color-primary;
-// }
+.product-array {
+  display: flex;
+  width: 95vw;
+  margin-top: 10rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+}

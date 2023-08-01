@@ -64,17 +64,15 @@ function Product() {
   return (
     <>
       <Header />
-      <div className="products">
-        <h1 className="products-name">{user.name}</h1>
-        <h2 className="products-title">Liste des produits</h2>
-        <div className="products-array">
-          <NavLink to="/product/add">
-            <button className="products-button" type="button">
-              Ajouter un produit
-            </button>
+      <div className="product">
+        <h1 className="product-name">{user.name}</h1>
+        <h2 className="product-title">Liste des produits</h2>
+        <div className="product-array">
+          <NavLink to="/product/add" className="add-button" type="button">
+            Ajouter un produit
           </NavLink>
           <table>
-            <thead className="produits-array-header">
+            <thead className="product-array-header">
               <tr>
                 <th>Id produit</th>
                 <th>Nom</th>
