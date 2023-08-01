@@ -68,10 +68,7 @@ function ClientAdd() {
             />
           </div>
           <div className="client-edit-form-item">
-            <label
-              className="client-edit-form-item-label"
-              htmlFor="lastname"
-            >
+            <label className="client-edit-form-item-label" htmlFor="lastname">
               Nom :
             </label>
             <input
@@ -183,9 +180,9 @@ function ClientAdd() {
           <button type="submit" className="register-button">
             Valider
           </button>
-          <NavLink className="action-item-button" to="/product">
+          <NavLink className="action-item-button" to="/client">
             <button type="button" className="action-item-button">
-              Voir les produits
+              Voir les clients
             </button>
           </NavLink>
         </form>
