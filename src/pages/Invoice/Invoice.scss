@@ -1,33 +1,47 @@
 @use '../../styles/variables' as v;
 
-.invoices {
+table {
+  border-collapse: collapse;
+  border: 2px solid black;
+  margin: auto;
 }
 
-// table {
-//   border-collapse: collapse;
-//   border: 2px solid black;
-//   margin: auto;
-// }
+td,
+th {
+  border: 1px solid black;
+  text-align: center;
+  padding: 2px 8px 0;
+  font-size: 0.9rem;
+  width: 13rem;
+}
 
-// td,
-// th {
-//   border: 1px solid black;
-//   text-align: center;
-//   padding: 2px 8px 0;
-//   font-size: 0.9rem;
-// }
+.invoice {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 12em);
+}
 
-// .invoices-array {
-//   flex-direction: column;
-//   flex-wrap: wrap;
-// }
+.invoice-page-title {
+  margin-top: 6rem;
+}
 
-// .invoices-button {
-//   display: inline;
-//   justify-content: flex-end;
-// }
+.invoice-title {
+  margin-top: 1rem;
+}
 
-// button:hover {
-//   background-color: v.$color-primary;
-//   color: v.$bg-color-primary;
-// }
+.invoice-array {
+  display: flex;
+  width: 95vw;
+  margin-top: 10rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.delete-button,
+.delete-button:hover {
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
