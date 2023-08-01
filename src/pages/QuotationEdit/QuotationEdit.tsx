@@ -15,15 +15,25 @@ interface DocumentLineData {
   document_id: number;
   client_id: number;
   product_id: number;
+  name: string;
+  category: string;
+  description: string;
+  price_ht: number;
+  id: number;
+
 }
 
 interface UserData {
   name: string;
+  id:number;
   // Ajoutez d'autres propriétés liées à l'utilisateur ici si disponible
 }
 
 function QuotationEdit() {
-  const [fields, setFields] = useState({});
+  const [user, setUser] = useState<UserData>({ name: '' });
+  const [documentLine, setDocumentLine] = useState<DocumentLineData | null>(null);
+  const { id } = useParams();
+
   const navigate = useNavigate();
 
   useEffect(function () {
@@ -44,6 +54,7 @@ function QuotationEdit() {
         try {
           const response = await getAPI().get(`/document/${id}`);
           setDocumentLine(response.data);
+          console.log(response.data)
         } catch (error) {
           console.log(error);
         }
@@ -67,16 +78,30 @@ function QuotationEdit() {
               <thead>
                 <tr>
                   <th>ID du produit</th>
+                  <th>Nom du produit</th>
+                  <th>Marque</th>
+                  <th>Description</th>
+                  <th>Prix unitaire</th>
                   <th>Quantité</th>
-                  <th>Prix</th>
+                  <th>Prix total</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+               
+                {documentLine.map(function (documentLine: DocumentLineData) {
+                  return (
+                  <tr key={documentLine.id}>
                   <td>{documentLine.product_id}</td>
+                  <td>{documentLine.name}</td>
+                  <td>{documentLine.category}</td>
+                  <td>{documentLine.description}</td>
+                  <td>{documentLine.price_ht}</td>
                   <td>{documentLine.quantity}</td>
-                  <td>{documentLine.price}</td>
+                  <td>{documentLine.price_ht * documentLine.quantity}</td>
                 </tr>
+                  );
+                })}
               </tbody>
             </table>
             <button className="back-button" onClick={() => navigate('/quotation')}>

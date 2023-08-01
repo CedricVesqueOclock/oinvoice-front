@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 import './Dashboard.scss';
+import { Chart } from 'chart.js';
 
 function Dashboard() {
   const [user, setUser] = useState({});
@@ -25,43 +26,20 @@ function Dashboard() {
   return (
     <>
       <Header />
-      <h1 className="name">{user.name}</h1>
-      <section className="statistics">
-        <img src="" alt="graph" />
-        <div className="statistics-items">
-          <p>Devis en attente</p>
-          <p>Facture en attente</p>
-          <p>Factures payées</p>
-        </div>
-        <div className="statistics-values">
-          <p>0</p>
-          <p>0</p>
-          <p>0</p>
-        </div>
-      </section>
-      <section className="statement">
-        <img src="" alt="graph" />
-        <div className="statement-items">
-          <p>Chiffre d'affaire</p>
-          <p>Bénéfice</p>
-        </div>
-        <div className="statement-values">
-          <p>0</p>
-          <p>0</p>
-        </div>
-      </section>
+      <section className='image'></section>
       <section className="actions">
+        <h1 className="name">{user.name}</h1>
         <div className="action-items">
           <div className="action-items-title">
             <h2>Devis</h2>
           </div>
           <div className="action-items-button">
-            <NavLink className="action-item-button" to="/quotation">
+            <NavLink to="/quotation">
               <button type="button" className="action-item-button">
                 Voir les devis
               </button>
             </NavLink>
-            <NavLink className="action-item-button" to="/quotation/add">
+            <NavLink to="/quotation/add">
               <button type="button" className="action-item-button">
                 Créer un devis
               </button>

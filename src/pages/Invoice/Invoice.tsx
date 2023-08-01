@@ -11,6 +11,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 import './Invoice.scss';
+import { NavLink } from 'react-router-dom';
 
 interface InvoiceData {
   id: number;
@@ -63,15 +64,15 @@ function Invoice() {
   return (
     <>
       <Header />
-      <div className="invoices">
-        <h1 className="invoices-name">{user.name}</h1>
-        <h2 className="invoices-title">Liste des factures</h2>
-        <button className="invoices-button" type="button">
-          Ajouter un client
-        </button>
-        <div className="invoices-array">
+      <div className="invoice">
+        <h1 className="user-name">{user.name}</h1>
+        <h2 className="invoice-page-title">Liste des factures</h2>
+        <div className="invoice-array">
+          <NavLink className="add-button" type="button">
+            Ajouter un client
+          </NavLink>
           <table>
-            <thead className="invoices-array-header">
+            <thead className="invoice-array-header">
               <tr>
                 <th>Numéro de facture</th>
                 <th>Date de commande</th>
@@ -79,7 +80,7 @@ function Invoice() {
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody className="invoices-array-body">
+            <tbody className="invoice-array-body">
               {invoice.map(function (invoice: InvoiceData) {
                 return (
                   <tr>
