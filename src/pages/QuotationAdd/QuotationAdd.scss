@@ -1,0 +1,31 @@
+@use '../../styles/variables' as v;
+
+.client {
+}
+
+// table {
+//   border-collapse: collapse;
+//   border: 2px solid black;
+//   margin: auto;
+// }
+
+// td,
+// th {
+//   border: 1px solid black;
+//   text-align: center;
+//   padding: 2px 8px 0;
+//   font-size: 0.9rem;
+// }
+
+.client-array {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.client-button {
+}
+
+.client-button:hover {
+  background-color: v.$color-primary;
+  color: v.$bg-color-primary;
+}
