@@ -85,7 +85,6 @@ function QuotationEdit() {
                   <th>Quantité</th>
                   <th>Prix total</th>
                   <th>Action</th>
-
                 </tr>
               </thead>
               <tbody>
