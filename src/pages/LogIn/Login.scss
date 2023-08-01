@@ -1,7 +1,7 @@
 @use '../../styles/variables' as v;
 
 .login {
-  min-height: calc(100vh - 13em);
+  min-height: calc(100vh - 22em);
 }
 
 .form {
@@ -14,7 +14,7 @@
   align-items: center;
   width: 90%;
   border: 1px solid black;
-  margin:1rem auto;
+  margin:10rem auto;
   padding: 1rem 2rem;
   border-radius: 10px;
   text-align: center;
