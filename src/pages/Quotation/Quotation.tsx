@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
@@ -50,49 +50,51 @@ function Quotation() {
   return (
     <>
       <Header />
-      <div className="quotations">
-        <h1 className="quotations-name">Nom de l'utilisateur</h1>
-        <h2 className="quotations-title">Liste des devis</h2>
-        <button className="quotations-button" type="button">
-          Ajouter un client
-        </button>
-        <div className="quotations-array">
-          <table>
-            <thead className="quotations-array-header">
-              <tr>
-                <th>Numéro de devis</th>
-                <th>Date de commande</th>
-                <th>Date de livraison</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody className="quotations-array-body">
-              {quotation.map(function (quotation: QuotationData) {
-                return (
-                  <tr>
-                    <td>{quotation.id}</td>
-                    <td>{quotation.order_date}</td>
-                    <td>{quotation.delivery_date}</td>
-                    <td>
-                      <a
-                        className="delete-button"
-                        href={`/quotation/${quotation.id}`}
-                      >
-                        <EditIcon />
-                      </a>
-                      <button
-                        type="button"
-                        className="delete-button"
-                        onClick={(e) => remove(quotation.id)}
-                      >
-                        <DeleteForeverIcon />
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+      <div className="quotation">
+        <div className="quotation-page-title">
+          <h1 className="user-name">Nom de l'utilisateur</h1>
+          <h2 className="quotation-title">Liste des devis</h2>
+          <div className="quotation-array">
+            <NavLink className="add-button" type="button" to="/quotation/add">
+              Ajouter un devis
+            </NavLink>
+            <table>
+              <thead className="quotation-array-header">
+                <tr>
+                  <th>Numéro de devis</th>
+                  <th>Date de commande</th>
+                  <th>Date de livraison</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody className="quotation-array-body">
+                {quotation.map(function (quotation: QuotationData) {
+                  return (
+                    <tr>
+                      <td>{quotation.id}</td>
+                      <td>{quotation.order_date}</td>
+                      <td>{quotation.delivery_date}</td>
+                      <td>
+                        <a
+                          className="delete-button"
+                          href={`/quotation/${quotation.id}`}
+                        >
+                          <EditIcon />
+                        </a>
+                        <button
+                          type="button"
+                          className="delete-button"
+                          onClick={(e) => remove(quotation.id)}
+                        >
+                          <DeleteForeverIcon />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <Footer />
