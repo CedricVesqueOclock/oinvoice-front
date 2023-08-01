@@ -64,7 +64,7 @@ function Quotation() {
     <>
       <Header />
       <div className="quotation">
-        <h1 className="quotation-name">Nom de l'utilisateur</h1>
+        <h1 className="quotation-name">{user.name}</h1>
         <h2 className="quotation-title">Liste des devis</h2>
         <div className="quotation-array">
           <NavLink className="add-button" type="button" to="/quotation/add">
