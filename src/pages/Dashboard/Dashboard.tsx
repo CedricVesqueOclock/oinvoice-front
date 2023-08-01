@@ -26,34 +26,9 @@ function Dashboard() {
   return (
     <>
       <Header />
-      <h1 className="name">{user.name}</h1>
-      <section className="statistics">
-        <div>
-          <canvas id="myChart" />
-        </div>
-        <div className="statistics-items">
-          <p>Devis en attente</p>
-          <p>Facture en attente</p>
-          <p>Factures payées</p>
-        </div>
-        <div className="statistics-values">
-          <p>0</p>
-          <p>0</p>
-          <p>0</p>
-        </div>
-      </section>
-      <section className="statement">
-        <img src="" alt="graph" />
-        <div className="statement-items">
-          <p>Chiffre d'affaire</p>
-          <p>Bénéfice</p>
-        </div>
-        <div className="statement-values">
-          <p>0</p>
-          <p>0</p>
-        </div>
-      </section>
+      <section className='image'></section>
       <section className="actions">
+        <h1 className="name">{user.name}</h1>
         <div className="action-items">
           <div className="action-items-title">
             <h2>Devis</h2>
