@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
+/* eslint-disable func-names */
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
@@ -18,9 +20,7 @@ interface QuotationData {
 }
 
 function Quotation() {
-  // const [fields, setFields] = useState({});
-  // const navigate = useNavigate();
-  // const [user, setUser] = useState({});
+  const [user, setUser] = useState({});
   const [quotation, setQuotation] = useState([]);
 
   useEffect(function () {
@@ -29,6 +29,18 @@ function Quotation() {
     };
 
     handle();
+  }, []);
+
+  useEffect(function () {
+    getAPI()
+      .get('/user/me', user)
+      .then(function (res) {
+        setUser(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function remove(id: number) {
@@ -51,7 +63,7 @@ function Quotation() {
     <>
       <Header />
       <div className="quotations">
-        <h1 className="quotations-name">Nom de l'utilisateur</h1>
+        <h1 className="quotations-name">{user.name}</h1>
         <h2 className="quotations-title">Liste des devis</h2>
         <button className="quotations-button" type="button">
           Ajouter un client
