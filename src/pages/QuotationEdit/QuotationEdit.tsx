@@ -15,10 +15,17 @@ interface DocumentLineData {
   document_id: number;
   client_id: number;
   product_id: number;
+  name: string;
+  category: string;
+  description: string;
+  price_ht: number;
+  id: number;
+
 }
 
 interface UserData {
   name: string;
+  id:number;
   // Ajoutez d'autres propriétés liées à l'utilisateur ici si disponible
 }
 
@@ -47,6 +54,7 @@ function QuotationEdit() {
         try {
           const response = await getAPI().get(`/document/${id}`);
           setDocumentLine(response.data);
+          console.log(response.data)
         } catch (error) {
           console.log(error);
         }
@@ -73,7 +81,7 @@ function QuotationEdit() {
                   <th>Nom du produit</th>
                   <th>Marque</th>
                   <th>Description</th>
-                  <th>Prix du produit</th>
+                  <th>Prix unitaire</th>
                   <th>Quantité</th>
                   <th>Prix total</th>
                   <th>Action</th>
@@ -81,7 +89,10 @@ function QuotationEdit() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
+               
+                {documentLine.map(function (documentLine: DocumentLineData) {
+                  return (
+                  <tr key={documentLine.id}>
                   <td>{documentLine.product_id}</td>
                   <td>{documentLine.name}</td>
                   <td>{documentLine.category}</td>
@@ -89,8 +100,9 @@ function QuotationEdit() {
                   <td>{documentLine.price_ht}</td>
                   <td>{documentLine.quantity}</td>
                   <td>{documentLine.price_ht * documentLine.quantity}</td>
-
                 </tr>
+                  );
+                })}
               </tbody>
             </table>
             <button className="back-button" onClick={() => navigate('/quotation')}>
