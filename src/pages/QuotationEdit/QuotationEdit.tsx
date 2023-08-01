@@ -23,13 +23,9 @@ interface UserData {
 }
 
 function QuotationEdit() {
-<<<<<<< HEAD
   const [user, setUser] = useState<UserData>({ name: '' });
   const [documentLine, setDocumentLine] = useState<DocumentLineData | null>(null);
   const { id } = useParams();
-=======
-  const [fields, setFields] = useState({});
->>>>>>> 704ab5cd31991113381607442397f3dc384016da
   const navigate = useNavigate();
 
   useEffect(function () {
@@ -73,15 +69,26 @@ function QuotationEdit() {
               <thead>
                 <tr>
                   <th>ID du produit</th>
+                  <th>Nom du produit</th>
+                  <th>Marque</th>
+                  <th>Description</th>
+                  <th>Prix du produit</th>
                   <th>Quantité</th>
-                  <th>Prix</th>
+                  <th>Prix total</th>
+                  <th>Action</th>
+
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>{documentLine.product_id}</td>
+                  <td>{documentLine.name}</td>
+                  <td>{documentLine.category}</td>
+                  <td>{documentLine.description}</td>
+                  <td>{documentLine.price_ht}</td>
                   <td>{documentLine.quantity}</td>
-                  <td>{documentLine.price}</td>
+                  <td>{documentLine.price_ht * documentLine.quantity}</td>
+
                 </tr>
               </tbody>
             </table>
