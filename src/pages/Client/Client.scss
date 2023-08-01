@@ -38,24 +38,6 @@ th {
   flex-wrap: wrap;
 }
 
-.client-button {
-  margin: 4rem 10rem;
-  width: 12rem;
-  text-align: center;
-  padding: 1rem 0;
-  border-radius: 10px;
-  display: inline;
-  justify-content: flex-end;
-  text-decoration: none;
-  color: v.$color-primary;
-  background-color: v.$bg-color-primary;
-}
-
-.client-button:hover {
-  background-color: v.$color-primary;
-  color: v.$bg-color-primary;
-}
-
 .delete-button,
 .delete-button:hover {
   background-color: white;

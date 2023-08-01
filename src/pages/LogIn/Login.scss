@@ -1,5 +1,9 @@
 @use '../../styles/variables' as v;
 
+.login {
+  min-height: calc(100vh - 13em);
+}
+
 .form {
   align-items: center;
   justify-content: center;
