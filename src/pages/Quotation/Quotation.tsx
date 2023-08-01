@@ -2,6 +2,7 @@
 /* eslint-disable no-alert */
 /* eslint-disable func-names */
 import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
@@ -63,7 +64,7 @@ function Quotation() {
     <>
       <Header />
       <div className="quotations">
-        <h1 className="quotations-name">{user.name}</h1>
+        <h1 className="quotations-name">Nom de l'utilisateur</h1>
         <h2 className="quotations-title">Liste des devis</h2>
         <button className="quotations-button" type="button">
           Ajouter un client

@@ -1,12 +1,5 @@
 @use '../../styles/variables' as v;
 
-.client {
-  flex-wrap: wrap;
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 12em);
-}
-
 table {
   border-collapse: collapse;
   border: 2px solid black;
@@ -20,6 +13,13 @@ th {
   padding: 2px 8px 0;
   font-size: 0.9rem;
   width: 13rem;
+}
+
+.client {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 12em);
 }
 
 .client-page-title {
@@ -36,24 +36,6 @@ th {
   margin-top: 10rem;
   flex-direction: column;
   flex-wrap: wrap;
-}
-
-.client-button {
-  margin: 4rem 10rem;
-  width: 12rem;
-  text-align: center;
-  padding: 1rem 0;
-  border-radius: 10px;
-  display: inline;
-  justify-content: flex-end;
-  text-decoration: none;
-  color: v.$color-primary;
-  background-color: v.$bg-color-primary;
-}
-
-.client-button:hover {
-  background-color: v.$color-primary;
-  color: v.$bg-color-primary;
 }
 
 .delete-button,
