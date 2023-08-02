@@ -222,7 +222,7 @@ function ClientEdit() {
             </button>
             <NavLink className="action-item-button" to="/client">
               <button type="button" className="action-item-button">
-                Voir les devis
+                Retour à la liste des clients
               </button>
             </NavLink>
           </form>
