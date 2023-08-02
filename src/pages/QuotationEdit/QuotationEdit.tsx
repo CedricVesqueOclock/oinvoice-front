@@ -20,18 +20,19 @@ interface DocumentLineData {
   description: string;
   price_ht: number;
   id: number;
-
 }
 
 interface UserData {
   name: string;
-  id:number;
+  id: number;
   // Ajoutez d'autres propriétés liées à l'utilisateur ici si disponible
 }
 
 function QuotationEdit() {
   const [user, setUser] = useState<UserData>({ name: '' });
-  const [documentLine, setDocumentLine] = useState<DocumentLineData | null>(null);
+  const [documentLine, setDocumentLine] = useState<DocumentLineData | null>(
+    null
+  );
   const { id } = useParams();
 
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ function QuotationEdit() {
         try {
           const response = await getAPI().get(`/document/${id}`);
           setDocumentLine(response.data);
-          console.log(response.data)
+          console.log(response.data);
         } catch (error) {
           console.log(error);
         }
@@ -88,23 +89,25 @@ function QuotationEdit() {
                 </tr>
               </thead>
               <tbody>
-               
                 {documentLine.map(function (documentLine: DocumentLineData) {
                   return (
-                  <tr key={documentLine.id}>
-                  <td>{documentLine.product_id}</td>
-                  <td>{documentLine.name}</td>
-                  <td>{documentLine.category}</td>
-                  <td>{documentLine.description}</td>
-                  <td>{documentLine.price_ht}</td>
-                  <td>{documentLine.quantity}</td>
-                  <td>{documentLine.price_ht * documentLine.quantity}</td>
-                </tr>
+                    <tr key={documentLine.id}>
+                      <td>{documentLine.product_id}</td>
+                      <td>{documentLine.name}</td>
+                      <td>{documentLine.category}</td>
+                      <td>{documentLine.description}</td>
+                      <td>{documentLine.price_ht}</td>
+                      <td>{documentLine.quantity}</td>
+                      <td>{documentLine.price_ht * documentLine.quantity}</td>
+                    </tr>
                   );
                 })}
               </tbody>
             </table>
-            <button className="back-button" onClick={() => navigate('/quotation')}>
+            <button
+              className="back-button"
+              onClick={() => navigate('/quotation')}
+            >
               Retour à la liste des devis
             </button>
           </div>

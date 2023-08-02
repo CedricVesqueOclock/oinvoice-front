@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { getAPI, logout } from '../../utils/api';
+import { useNavigate } from 'react-router-dom';
+import { getAPI } from '../../utils/api';
 
 // Import du scss
 import './Account.scss';
@@ -20,7 +20,6 @@ function Account() {
       .patch('/user/me', fields)
       .then(function (res) {
         // récupération des datas
-        console.log(res.data);
         alert('Compte modifié');
       })
       .catch(function (error) {
@@ -28,18 +27,20 @@ function Account() {
       });
   }
 
-  useEffect(function () {
-    getAPI()
-      .get('/user/me', fields)
-      .then(function (res) {
-        // récupération des datas
-        setFields(res.data);
-        console.log(res.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
+  useEffect(
+    function () {
+      getAPI()
+        .get('/user/me', fields)
+        .then(function (res) {
+          // récupération des datas
+          setFields(res.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+    [fields]
+  );
 
   const deleteAccount = function () {
     getAPI()
@@ -47,16 +48,10 @@ function Account() {
       .then(function (res) {
         // récupération des datas
         navigate('/login');
-        console.log(res.data);
       })
       .catch(function (error) {
         console.log(error);
       });
-  };
-
-  const logoutAccount = function () {
-    logout();
-    navigate('/login');
   };
 
   return (
@@ -143,18 +138,14 @@ function Account() {
               setFields({ ...fields, siren: event.target.value })
             }
           />
-          <NavLink type="submit" className="add-button">
+          <button type="submit" className="add-button">
             Valider
-          </NavLink>
+          </button>
         </form>
-        <hr />
         <div className="action">
-          <NavLink type="submit" onClick={deleteAccount} className='add-button'>
+          <button type="submit" onClick={deleteAccount} className="add-button">
             Supprimer mon compte
-          </NavLink>
-          <NavLink type="submit" onClick={logoutAccount} className='add-button'>
-            Se déconnecter
-          </NavLink>
+          </button>
         </div>
       </div>
       <Footer />

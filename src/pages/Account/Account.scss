@@ -1,8 +1,24 @@
 @use '../../styles/variables' as v;
 
 .form {
+  width: 90vw;
+  margin: auto;
+}
+
+.signInForm {
   flex-wrap: wrap;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 12em);
+  min-height: calc(100vh - 25em);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
