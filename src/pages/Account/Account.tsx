@@ -143,18 +143,14 @@ function Account() {
               setFields({ ...fields, siren: event.target.value })
             }
           />
-          <NavLink type="submit" className="add-button">
+          <button type="submit" className="add-button">
             Valider
-          </NavLink>
+          </button>
         </form>
-        <hr />
         <div className="action">
-          <NavLink type="submit" onClick={deleteAccount} className='add-button'>
+          <button type="submit" onClick={deleteAccount} className="add-button">
             Supprimer mon compte
-          </NavLink>
-          <NavLink type="submit" onClick={logoutAccount} className='add-button'>
-            Se déconnecter
-          </NavLink>
+          </button>
         </div>
       </div>
       <Footer />

@@ -2,7 +2,7 @@
 @use 'variables' as v;
 
 body {
-  margin: 0;
+  margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -23,14 +23,15 @@ code {
 }
 
 .add-button {
-  margin: 4rem 10rem;
-  width: 12rem;
+  margin: 2rem;
+  width: 15rem;
   text-align: center;
   padding: 1rem 1rem;
   border-radius: 10px;
   text-decoration: none;
   color: v.$color-primary;
   background-color: v.$bg-color-primary;
+  border: none
 }
 
 .add-button:hover {
