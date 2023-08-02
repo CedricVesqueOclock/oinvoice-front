@@ -68,8 +68,8 @@ function Invoice() {
         <h1 className="user-name">{user.name}</h1>
         <h2 className="invoice-page-title">Liste des factures</h2>
         <div className="invoice-array">
-          <NavLink className="add-button" type="button">
-            Ajouter un client
+          <NavLink className="add-button" type="button" to="/invoice/add">
+            Ajouter une facture
           </NavLink>
           <table>
             <thead className="invoice-array-header">
@@ -83,7 +83,7 @@ function Invoice() {
             <tbody className="invoice-array-body">
               {invoice.map(function (invoice: InvoiceData) {
                 return (
-                  <tr>
+                  <tr key={invoice.id}>
                     <td>{invoice.id}</td>
                     <td>{invoice.order_date}</td>
                     <td>{invoice.delivery_date}</td>
