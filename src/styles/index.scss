@@ -17,6 +17,15 @@ code {
     monospace;
 }
 
+input {
+  width: 100%;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  border: 1px solid v.$color-primary;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
 .home-link {
   text-decoration: none;
   color: v.$color-primary;
