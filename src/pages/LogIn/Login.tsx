@@ -18,7 +18,7 @@ function login() {
     event.preventDefault();
 
     getAPI()
-      .post('/login', fields)
+      .post('/', fields)
       .then(function (res) {
         // récupération des datas
         console.log(res.data);
