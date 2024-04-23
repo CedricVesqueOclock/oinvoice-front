@@ -17,7 +17,7 @@ function Register() {
     event.preventDefault();
 
     axios
-      .post('http://0.0.0.0:3000/api/user', fields)
+      .post('http://localhost:3000/user', fields)
       .then(function (res) {
         // récupération des datas
         console.log(res.data);
@@ -62,12 +62,12 @@ function Register() {
             }
             required
           />
-          <label htmlFor="address">Adresse :</label>
+          <label htmlFor="adress">Adresse :</label>
           <input
             type="text"
-            id="address"
+            id="adress"
             onChange={(event) =>
-              setFields({ ...fields, address: event.target.value })
+              setFields({ ...fields, adress: event.target.value })
             }
             required
           />
