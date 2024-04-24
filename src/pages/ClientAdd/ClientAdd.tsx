@@ -21,7 +21,7 @@ function ClientAdd() {
     event.preventDefault();
 
     await getAPI()
-      .post('http://0.0.0.0:3000/api/client', fields)
+      .post('http://0.0.0.0:3000/client', fields)
       .then(function (res) {
         // récupération des datas
         console.log(res.data);
@@ -49,7 +49,7 @@ function ClientAdd() {
     <>
       <Header />
       <div className="form">
-      <h1 className="user-name">{user.name}</h1>
+        <h1 className="user-name">{user.name}</h1>
 
         <form className="client-edit-form" onSubmit={Submit}>
           <h2>Ajouter un Client</h2>
@@ -122,15 +122,15 @@ function ClientAdd() {
             />
           </div>
           <div className="client-edit-form-item">
-            <label className="client-edit-form-item-label" htmlFor="address">
+            <label className="client-edit-form-item-label" htmlFor="adress">
               Adresse postale :
             </label>
             <input
               type="text"
-              id="address"
+              id="adress"
               className="client-edit-form-item-input"
               onChange={(event) =>
-                setFields({ ...fields, address: event.target.value })
+                setFields({ ...fields, adress: event.target.value })
               }
               required
             />

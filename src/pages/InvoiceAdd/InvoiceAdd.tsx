@@ -20,7 +20,7 @@ function QuotationAdd() {
     event.preventDefault();
 
     await getAPI()
-      .post('http://0.0.0.0:3000/api/document', fields)
+      .post('http://0.0.0.0:3000/document', fields)
       .then(function (res) {
         // récupération des datas
         console.log(res.data);

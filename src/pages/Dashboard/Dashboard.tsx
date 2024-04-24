@@ -26,7 +26,7 @@ function Dashboard() {
   return (
     <>
       <Header />
-      <section className='image'></section>
+      <section className='image' />
       <section className="actions">
         <h1 className="name">{user.name}</h1>
         <div className="action-items">
