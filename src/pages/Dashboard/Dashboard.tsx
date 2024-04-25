@@ -6,7 +6,6 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 import './Dashboard.scss';
-import { Chart } from 'chart.js';
 
 function Dashboard() {
   const [user, setUser] = useState({});
@@ -26,7 +25,7 @@ function Dashboard() {
   return (
     <>
       <Header />
-      <section className='image' />
+      <section className="image" />
       <section className="actions">
         <h1 className="name">{user.name}</h1>
         <div className="action-items">
@@ -97,31 +96,6 @@ function Dashboard() {
             </NavLink>
           </div>
         </div>
-        {/* <div className='action-items'>
-          <div className='action-items-title'>
-            <h2>Factures</h2>
-          </div>
-          <div className='action-items-button'></div>
-            <button>Voir les factures</button>
-            <button>Créer</button>
-          </div>
-        </div>
-        <div className='action-items'>
-          <div className='action-items-title'>
-            <h2>Clients</h2>
-          </div>
-          <div className='action-items-button'></div>
-            <button>Voir les clients</button>
-            <button>Créer</button>
-          </div>
-        <div className='action-items'>
-          <div className='action-items-title'>
-            <h2>Produits</h2>
-          </div>
-          <div className='action-items-button'></div>
-            <button>Voir les produits</button>
-            <button>Créer</button>
-          </div> */}
       </section>
       <Footer />
     </>
